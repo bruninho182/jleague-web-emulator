@@ -1,0 +1,63 @@
+{
+    "name": "J.League Winning Eleven 2000 - Emulador Online",
+    "short_name": "WE2000",
+    "description": "Emulador online do clássico J.League Winning Eleven 2000 para PlayStation 1. Reviva o futebol japonês dos anos 2000!",
+    "start_url": "/index.html",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#0a0a1a",
+    "theme_color": "#1e40af",
+    "lang": "pt-BR",
+    "categories": ["games", "entertainment", "sports"],
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/icons/screenshot-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "assets/icons/screenshot-narrow.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Jogar Agora",
+            "short_name": "Jogar",
+            "description": "Ir direto para o emulador",
+            "url": "/index.html#emulador",
+            "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Ver Times",
+            "short_name": "Times",
+            "description": "Conheça os times da J.League 2000",
+            "url": "/index.html#times",
+            "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+        }
+    ]
+}

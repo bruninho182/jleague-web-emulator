@@ -214,3 +214,38 @@ function initDevModal() {
         }
     });
 }
+
+/* ============ PWA - Botão Instalar ============ */
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Impede o banner automático do Chrome
+    e.preventDefault();
+    deferredPrompt = e;
+
+    // Mostra o botão "Instalar" no header
+    const installBtn = document.querySelector('#pwa-install-btn');
+    if (installBtn) {
+        installBtn.style.display = 'inline-flex';
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+
+            RetroAudio.play('select');
+            deferredPrompt.prompt();
+
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`[PWA] Escolha do usuário: ${outcome}`);
+
+            deferredPrompt = null;
+            installBtn.style.display = 'none';
+        });
+    }
+});
+
+// Se o app já foi instalado, esconde o botão
+window.addEventListener('appinstalled', () => {
+    console.log('[PWA] App instalado com sucesso!');
+    const installBtn = document.querySelector('#pwa-install-btn');
+    if (installBtn) installBtn.style.display = 'none';
+    deferredPrompt = null;
+});
