@@ -44,7 +44,7 @@ function initSoundEffects() {
     });
 }
 
-/* ============ SELEÇÃO DE TIMES ============ */
+/* ============ GRID DE TIMES ============ */
 function initTeamsGrid() {
     TeamSelector.init();
 }

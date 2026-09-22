@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/retro.css">
     <link rel="stylesheet" href="css/we2000-theme.css">
     <link rel="stylesheet" href="css/team-selector.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -34,11 +35,12 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header">
         <div class="header-inner">
-            <div class="logo">
-                <span class="logo-jleague">J.LEAGUE</span>
-                <span class="logo-we">WINNING ELEVEN 2000</span>
-            </div>
-                        <nav class="main-nav">
+                        <a href="#top" class="logo" data-sound="click" aria-label="J.League Winning Eleven 2000">
+                <img src="assets/images/logo.png" 
+                     alt="J.League Winning Eleven 2000" 
+                     class="logo-img">
+            </a>
+            <nav class="main-nav">
                 <a href="#emulador" class="nav-link" data-sound="hover">Jogar</a>
                 <a href="#times" class="nav-link" data-sound="hover">Times</a>
                 <a href="#sobre" class="nav-link" data-sound="hover">Sobre</a>
@@ -51,16 +53,6 @@
             </div>
         </div>
     </header>
-
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">J.LEAGUE 2000</h1>
-            <p class="hero-subtitle">O clássico futebol japonês do PlayStation 1, agora no seu navegador.</p>
-            <a href="#emulador" class="btn-retro" data-sound="click">▶ INICIAR JOGO</a>
-        </div>
-        <div class="hero-particles"></div>
-    </section>
 
     <!-- ================= EMULADOR ================= -->
     <main>
@@ -98,7 +90,7 @@
             </div>
         </section>
 
-        <!-- ================= SELEÇÃO DE TIMES ================= -->
+        <!-- ================= CONHEÇA OS TIMES ================= -->
         <section id="times" class="teams-section fade-in">
             <h2 class="section-title">▸ CONHEÇA OS TIMES</h2>
             <p class="section-subtitle">
@@ -199,9 +191,17 @@
     <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
     <button id="back-to-top" class="back-to-top" title="Voltar ao topo" data-sound="click">▲</button>
 
-    <!-- ================= FOOTER ================= -->
+        <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
-        <p>© 2026 J.League WE 2000 Web Project · Feito por fãs, para fãs.</p>
+        <p class="footer-copyright">© 2026 J.League WE 2000 Web Project · Feito por fãs, para fãs.</p>
+        
+        <p class="footer-credits">
+            <i class="fas fa-code"></i> Desenvolvido por
+            <a href="https://github.com/bruninho182" target="_blank" rel="noopener noreferrer" class="footer-dev-link">
+                <i class="fab fa-github"></i> Bruno Ferreira
+            </a>
+        </p>
+        
         <p class="disclaimer">Este site não distribui ROMs nem BIOS. Todo conteúdo é de propriedade da Konami / J.League.</p>
     </footer>
 

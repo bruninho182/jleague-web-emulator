@@ -9,7 +9,6 @@
 body {
     background-color: #1e3a8a;
     background-image:
-        /* Watermark "WE2000" repetido */
         repeating-linear-gradient(
             45deg,
             transparent 0px,
@@ -24,7 +23,6 @@ body {
             rgba(255, 255, 255, 0.03) 60px,
             rgba(255, 255, 255, 0.03) 61px
         ),
-        /* Gradiente vertical sutil */
         linear-gradient(
             180deg,
             #1e40af 0%,
@@ -44,12 +42,15 @@ body::before {
     left: 50%;
     transform: translate(-50%, -50%) rotate(-15deg);
     font-family: 'Press Start 2P', monospace;
-    font-size: 10vw;
-    color: rgba(255, 255, 255, 0.04);
+    font-size: 8vw;
+    color: rgba(255, 255, 255, 0.03);
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
     letter-spacing: 0.05em;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
 }
 
 /* Garante que o conteúdo fique acima do watermark */
@@ -91,43 +92,42 @@ body > * {
 }
 
 .header-inner {
-    padding: 0.9rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
+/* Logo como imagem */
 .logo {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
-    padding: 6px 16px;
-    border-radius: 999px;
-    border: 3px solid #fff;
-    box-shadow:
-        0 3px 0 #7c2d12,
-        0 5px 12px rgba(0, 0, 0, 0.5),
-        inset 0 2px 0 rgba(255, 255, 255, 0.4);
-    transform: skewX(-3deg);
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transform: none;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.logo-jleague {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 0.85rem;
-    color: #fff;
-    text-shadow:
-        2px 2px 0 #1e3a8a,
-        -1px -1px 0 #1e3a8a,
-        1px -1px 0 #1e3a8a,
-        -1px 1px 0 #1e3a8a;
-    transform: skewX(3deg);
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(251, 146, 60, 0.7));
 }
 
-.logo-we {
-    font-family: 'VT323', monospace;
-    font-size: 0.95rem;
-    color: #fef3c7;
-    letter-spacing: 1px;
-    transform: skewX(3deg);
-    text-shadow: 1px 1px 0 #7c2d12;
+.logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 280px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(2px 3px 4px rgba(0, 0, 0, 0.6));
+    transition: filter 0.25s ease;
+}
+
+.logo:hover .logo-img {
+    filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.8))
+            drop-shadow(0 0 10px rgba(251, 191, 36, 0.6));
 }
 
 /* Nav links - estilo "botão verde do jogo" */
@@ -188,66 +188,13 @@ body > * {
 }
 
 /* ============================================
-   5. HERO - estilo "tela de menu principal"
-   ============================================ */
-.hero {
-    background:
-        radial-gradient(ellipse at top, rgba(251, 146, 60, 0.25) 0%, transparent 60%),
-        linear-gradient(180deg, #1e40af 0%, #1e3a8a 50%, #1e293b 100%);
-    border-bottom: 4px dashed #f59e0b;
-    padding: 3rem 1.5rem;
-}
-
-.hero-particles {
-    background-image:
-        radial-gradient(2px 2px at 15% 20%, rgba(251, 191, 36, 0.8), transparent),
-        radial-gradient(3px 3px at 45% 60%, rgba(34, 197, 94, 0.6), transparent),
-        radial-gradient(2px 2px at 75% 30%, rgba(251, 146, 60, 0.7), transparent),
-        radial-gradient(2px 2px at 85% 75%, rgba(59, 130, 246, 0.7), transparent),
-        radial-gradient(1px 1px at 25% 85%, rgba(251, 191, 36, 0.5), transparent);
-    opacity: 0.5;
-}
-
-/* Título com efeito "banner pílula laranja" */
-.hero-title {
-    display: inline-block;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 1.8rem;
-    color: #fff;
-    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
-    padding: 0.9rem 2rem;
-    border-radius: 999px;
-    border: 4px solid #fff;
-    box-shadow:
-        0 6px 0 #7c2d12,
-        0 8px 20px rgba(0, 0, 0, 0.6),
-        inset 0 4px 0 rgba(255, 255, 255, 0.4);
-    text-shadow:
-        3px 3px 0 #1e3a8a,
-        -2px -2px 0 #1e3a8a,
-        2px -2px 0 #1e3a8a,
-        -2px 2px 0 #1e3a8a;
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
-}
-
-.hero-subtitle {
-    font-family: 'VT323', monospace;
-    font-size: 1.3rem;
-    color: #fef3c7;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-}
-
-/* ============================================
-   6. BOTÃO RETRÔ - estilo "botão verde do menu"
+   5. BOTÃO RETRÔ - estilo "botão verde do menu"
    ============================================ */
 .btn-retro {
     display: inline-block;
     font-family: 'Press Start 2P', monospace;
     font-size: 0.7rem;
-    padding: 0.9rem 1.6rem;
+    padding: 0.7rem 1.3rem;
     color: #fff;
     background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
     border: 3px solid #fff;
@@ -289,7 +236,7 @@ body > * {
 }
 
 /* ============================================
-   7. SEÇÕES - estilo "painel de configuração"
+   6. SEÇÕES - estilo "painel de configuração"
    ============================================ */
 section {
     padding: 2rem 1.5rem;
@@ -318,6 +265,21 @@ section {
     border-bottom: 3px solid #fff;
     animation: none;
     letter-spacing: 1px;
+}
+
+/* ============================================
+   7. AJUSTE PÓS-REMOÇÃO DO HERO
+   ============================================ */
+main {
+    padding-top: 1rem;
+}
+
+#emulador {
+    padding-top: 1.5rem;
+}
+
+#emulador .section-title {
+    margin-bottom: 1.2rem;
 }
 
 /* ============================================
@@ -358,7 +320,6 @@ section {
     padding: 1rem;
 }
 
-/* Botões do painel - estilo "botão verde pequeno" */
 .file-upload-btn,
 .ctrl-btn {
     font-family: 'Press Start 2P', monospace;
@@ -416,7 +377,7 @@ section {
 }
 
 /* ============================================
-   9. CARDS DE TIME - estilo "grade de escudos"
+   9. CARDS DE TIME
    ============================================ */
 .teams-grid {
     display: grid;
@@ -504,11 +465,39 @@ section {
 }
 
 /* ============================================
-   10. MODAL - estilo "popup PS1"
+   10. MODAL - CORRIGIDO
+   Garante que o modal fique OCULTO por padrão
+   e só apareça quando o JS adicionar .active
    ============================================ */
 .modal {
+    /* ⚡ CRÍTICO: esconde o modal por padrão */
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
     background: rgba(15, 23, 42, 0.92);
     backdrop-filter: blur(6px);
+    overflow-y: auto;
+}
+
+.modal.active {
+    /* Só aparece quando o JS adiciona a classe .active */
+    display: flex;
+    animation: modalFadeIn 0.25s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Blindagem extra: se o .modal-content estiver solto
+   no DOM (sem o .modal pai), ele fica oculto por segurança */
+body > .modal-content {
+    display: none;
 }
 
 .modal-content {
@@ -520,9 +509,27 @@ section {
         0 0 40px rgba(251, 191, 36, 0.6),
         inset 0 2px 0 rgba(255, 255, 255, 0.2);
     padding: 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    animation: modalSlideIn 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(30px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 
 .modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
     background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
     color: #fff;
     border: 3px solid #fff;
@@ -535,6 +542,7 @@ section {
         inset 0 2px 0 rgba(255, 255, 255, 0.3);
     font-family: 'Press Start 2P', monospace;
     line-height: 1;
+    cursor: pointer;
 }
 
 .modal-close:hover {
@@ -544,6 +552,11 @@ section {
 
 .modal-header {
     border-bottom: 2px dashed #fbbf24;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 .modal-header h3 {
@@ -562,6 +575,12 @@ section {
     color: #fef3c7;
 }
 
+.modal-shield {
+    width: 70px;
+    height: 84px;
+    flex-shrink: 0;
+}
+
 .modal-body {
     font-family: 'VT323', monospace;
     font-size: 1.15rem;
@@ -569,8 +588,12 @@ section {
 }
 
 .modal-body .stat-line {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px dotted #60a5fa;
     padding: 0.5rem 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .modal-body .stat-line strong {
@@ -579,7 +602,7 @@ section {
 }
 
 /* ============================================
-   11. SOBRE E CHAT - painéis escuros
+   11. SOBRE E CHAT
    ============================================ */
 .about-content {
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
@@ -649,15 +672,128 @@ section {
     border-top: 4px solid #f59e0b;
     color: #94a3b8;
     text-shadow: 1px 1px 0 #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .site-footer .disclaimer {
     color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.3px;
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
+
+/* Copyright */
+.footer-copyright {
+    color: #94a3b8;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 0.5px;
+}
+
+/* Linha de créditos do desenvolvedor */
+.footer-credits {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 41, 59, 0.7) 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 6px;
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.5),
+        0 3px 8px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    transition: all 0.25s ease;
+}
+
+.footer-credits:hover {
+    border-color: #fbbf24;
+    box-shadow:
+        inset 0 2px 6px rgba(0, 0, 0, 0.5),
+        0 0 16px rgba(251, 191, 36, 0.5);
+}
+
+.footer-credits .fas.fa-code {
+    color: #fbbf24;
+    font-size: 1rem;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
+    animation: codePulse 2s ease-in-out infinite;
+}
+
+@keyframes codePulse {
+    0%, 100% {
+        color: #fbbf24;
+        text-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
+    }
+    50% {
+        color: #fde68a;
+        text-shadow: 0 0 12px rgba(251, 191, 36, 1);
+    }
+}
+
+/* Link do desenvolvedor */
+.footer-dev-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #fbbf24;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.footer-dev-link .fab.fa-github {
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+}
+
+.footer-dev-link:hover {
+    color: #fff;
+    background: rgba(251, 191, 36, 0.15);
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.6),
+        0 0 8px rgba(251, 191, 36, 0.8);
+}
+
+.footer-dev-link:hover .fab.fa-github {
+    transform: rotate(-10deg) scale(1.15);
+}
+
+.footer-dev-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #fbbf24;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+    box-shadow: 0 0 6px rgba(251, 191, 36, 0.8);
+}
+
+.footer-dev-link:hover::after {
+    width: 90%;
 }
 
 /* ============================================
-   13. BACK-TO-TOP - botão de navegação
+   13. BACK-TO-TOP
    ============================================ */
 .back-to-top {
     background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
@@ -683,17 +819,9 @@ section {
    14. RESPONSIVO
    ============================================ */
 @media (max-width: 900px) {
-    .hero-title {
-        font-size: 1.1rem;
-        padding: 0.7rem 1.2rem;
-    }
-
-    .logo-jleague {
-        font-size: 0.65rem;
-    }
-
-    .logo-we {
-        font-size: 0.8rem;
+    .logo-img {
+        height: 48px;
+        max-width: 220px;
     }
 
     .nav-link {
@@ -713,20 +841,26 @@ section {
 }
 
 @media (max-width: 600px) {
-    .logo {
-        padding: 5px 12px;
+    .logo-img {
+        height: 40px;
+        max-width: 180px;
     }
 
-    .logo-jleague {
-        font-size: 0.55rem;
+    .header-inner {
+        padding: 0.8rem 1rem;
     }
 
-    .hero-title {
+    .footer-credits {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+
+    .footer-credits .fas.fa-code {
         font-size: 0.9rem;
     }
 
-    .btn-retro {
-        font-size: 0.55rem;
-        padding: 0.7rem 1rem;
+    .footer-dev-link {
+        font-size: 1rem;
     }
 }
