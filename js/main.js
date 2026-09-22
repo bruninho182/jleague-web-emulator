@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initScrollAnimations();
     initBackToTop();
+    initDevModal();
 });
 
 /* ============ STATUS BAR (relógio + visitantes) ============ */
@@ -174,5 +175,41 @@ function initBackToTop() {
 
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+/* ============ MODAL DO DEV ============ */
+function initDevModal() {
+    const openBtn = document.querySelector('#open-dev-modal');
+    const closeBtn = document.querySelector('#dev-modal-close');
+    const modal = document.querySelector('#dev-modal');
+
+    if (!openBtn || !modal) return;
+
+    function openModal() {
+        modal.classList.add('active');
+        RetroAudio.play('select');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        RetroAudio.play('close');
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Fecha ao clicar fora
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Fecha com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
     });
 }

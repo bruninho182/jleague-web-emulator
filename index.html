@@ -35,7 +35,7 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header">
         <div class="header-inner">
-                        <a href="#top" class="logo" data-sound="click" aria-label="J.League Winning Eleven 2000">
+            <a href="#top" class="logo" data-sound="click" aria-label="J.League Winning Eleven 2000">
                 <img src="assets/images/logo.png" 
                      alt="J.League Winning Eleven 2000" 
                      class="logo-img">
@@ -45,6 +45,9 @@
                 <a href="#times" class="nav-link" data-sound="hover">Times</a>
                 <a href="#sobre" class="nav-link" data-sound="hover">Sobre</a>
                 <a href="#chat" class="nav-link" data-sound="hover">Chat</a>
+                <button id="open-dev-modal" class="nav-link nav-link-dev" data-sound="click" type="button">
+                    <i class="fas fa-user-astronaut"></i> DEV
+                </button>
             </nav>
         </div>
         <div class="marquee-bar">
@@ -188,10 +191,78 @@
         </div>
     </div>
 
+    <!-- ================= MODAL DO DEV ================= -->
+    <div id="dev-modal" class="modal">
+        <div class="modal-content dev-modal-content">
+            <button class="modal-close" id="dev-modal-close" data-sound="click" type="button">✕</button>
+            
+            <div class="dev-header">
+                <div class="dev-avatar-wrap">
+                    <img src="assets/images/dev-photo.png" 
+                         alt="Foto do desenvolvedor" 
+                         class="dev-avatar"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="dev-avatar-fallback" style="display: none;">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="dev-badge">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div class="dev-title">
+                    <span class="dev-name">Bruno Ferreira</span>
+                    <span class="dev-role">Desenvolvedor & Fã de WE2000</span>
+                </div>
+            </div>
+
+            <div class="dev-body">
+                <p class="dev-bio">
+                    Apaixonado por futebol japonês e jogos de PlayStation 1, 
+                    criei este projeto para preservar e celebrar um dos clássicos 
+                    mais icônicos da era de ouro do Winning Eleven. 🎮⚽
+                </p>
+                <p class="dev-bio">
+                    Se você também ama a J.League dos anos 2000, me chama pra trocar ideia!
+                </p>
+
+                <div class="dev-links">
+                    <a href="https://github.com/bruninho182" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="dev-social-link github"
+                       data-sound="click">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/SEU-LINKEDIN" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="dev-social-link linkedin"
+                       data-sound="click">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:seu@email.com" 
+                       class="dev-social-link email"
+                       data-sound="click">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="dev-footer">
+                <span class="dev-footer-text">
+                    <i class="fas fa-heart"></i> Feito com paixão em 2026
+                </span>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
     <button id="back-to-top" class="back-to-top" title="Voltar ao topo" data-sound="click">▲</button>
 
-        <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
         <p class="footer-copyright">© 2026 J.League WE 2000 Web Project · Feito por fãs, para fãs.</p>
         
