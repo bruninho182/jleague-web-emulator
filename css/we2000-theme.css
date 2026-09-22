@@ -1,0 +1,732 @@
+/* ============================================
+   WE2000-THEME.CSS
+   Estética inspirada em J.League Winning Eleven 2000 (PS1)
+   ============================================ */
+
+/* ============================================
+   1. FUNDO PRINCIPAL - Azul Royal com Watermark
+   ============================================ */
+body {
+    background-color: #1e3a8a;
+    background-image:
+        /* Watermark "WE2000" repetido */
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 60px,
+            rgba(255, 255, 255, 0.03) 60px,
+            rgba(255, 255, 255, 0.03) 61px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent 0px,
+            transparent 60px,
+            rgba(255, 255, 255, 0.03) 60px,
+            rgba(255, 255, 255, 0.03) 61px
+        ),
+        /* Gradiente vertical sutil */
+        linear-gradient(
+            180deg,
+            #1e40af 0%,
+            #1e3a8a 40%,
+            #1e293b 100%
+        );
+    background-attachment: fixed;
+    color: #fff;
+    font-family: 'VT323', monospace;
+}
+
+/* Watermark textual gigante no fundo */
+body::before {
+    content: 'WINNING ELEVEN 2000';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10vw;
+    color: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 0.05em;
+}
+
+/* Garante que o conteúdo fique acima do watermark */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   2. STATUS BAR - estilo "linha de topo PS1"
+   ============================================ */
+.status-bar {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    color: #ffd700;
+    border-bottom: 3px solid #f59e0b;
+    box-shadow:
+        inset 0 -2px 0 rgba(0, 0, 0, 0.5),
+        0 2px 8px rgba(0, 0, 0, 0.5);
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.status-dot.online {
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e, inset 0 0 4px #fff;
+}
+
+/* ============================================
+   3. HEADER - estilo "banner de menu PS1"
+   ============================================ */
+.site-header {
+    background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+    border-bottom: 4px solid #f59e0b;
+    box-shadow:
+        0 4px 0 #000,
+        0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.header-inner {
+    padding: 0.9rem 1.5rem;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 3px solid #fff;
+    box-shadow:
+        0 3px 0 #7c2d12,
+        0 5px 12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    transform: skewX(-3deg);
+}
+
+.logo-jleague {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 #1e3a8a,
+        -1px -1px 0 #1e3a8a,
+        1px -1px 0 #1e3a8a,
+        -1px 1px 0 #1e3a8a;
+    transform: skewX(3deg);
+}
+
+.logo-we {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #fef3c7;
+    letter-spacing: 1px;
+    transform: skewX(3deg);
+    text-shadow: 1px 1px 0 #7c2d12;
+}
+
+/* Nav links - estilo "botão verde do jogo" */
+.nav-link {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #14532d;
+    box-shadow:
+        0 3px 0 #14532d,
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.15s;
+    letter-spacing: 1px;
+}
+
+.nav-link::after {
+    display: none;
+}
+
+.nav-link:hover {
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 0 #14532d,
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.nav-link:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 1px 0 #14532d,
+        inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   4. MARQUEE - Faixa vermelha "MENU BAR"
+   ============================================ */
+.marquee-bar {
+    background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+    border-top: 2px solid #fca5a5;
+    border-bottom: 2px solid #7f1d1d;
+    padding: 6px 0;
+}
+
+.marquee-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   5. HERO - estilo "tela de menu principal"
+   ============================================ */
+.hero {
+    background:
+        radial-gradient(ellipse at top, rgba(251, 146, 60, 0.25) 0%, transparent 60%),
+        linear-gradient(180deg, #1e40af 0%, #1e3a8a 50%, #1e293b 100%);
+    border-bottom: 4px dashed #f59e0b;
+    padding: 3rem 1.5rem;
+}
+
+.hero-particles {
+    background-image:
+        radial-gradient(2px 2px at 15% 20%, rgba(251, 191, 36, 0.8), transparent),
+        radial-gradient(3px 3px at 45% 60%, rgba(34, 197, 94, 0.6), transparent),
+        radial-gradient(2px 2px at 75% 30%, rgba(251, 146, 60, 0.7), transparent),
+        radial-gradient(2px 2px at 85% 75%, rgba(59, 130, 246, 0.7), transparent),
+        radial-gradient(1px 1px at 25% 85%, rgba(251, 191, 36, 0.5), transparent);
+    opacity: 0.5;
+}
+
+/* Título com efeito "banner pílula laranja" */
+.hero-title {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.8rem;
+    color: #fff;
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    border: 4px solid #fff;
+    box-shadow:
+        0 6px 0 #7c2d12,
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        inset 0 4px 0 rgba(255, 255, 255, 0.4);
+    text-shadow:
+        3px 3px 0 #1e3a8a,
+        -2px -2px 0 #1e3a8a,
+        2px -2px 0 #1e3a8a,
+        -2px 2px 0 #1e3a8a;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.hero-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: #fef3c7;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   6. BOTÃO RETRÔ - estilo "botão verde do menu"
+   ============================================ */
+.btn-retro {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    padding: 0.9rem 1.6rem;
+    color: #fff;
+    background: linear-gradient(180deg, #22c55e 0%, #15803d 100%);
+    border: 3px solid #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #14532d;
+    box-shadow:
+        0 5px 0 #14532d,
+        0 6px 0 #fff,
+        0 8px 16px rgba(0, 0, 0, 0.5),
+        inset 0 3px 0 rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.12s;
+    letter-spacing: 1px;
+    line-height: 1.4;
+}
+
+.btn-retro:hover {
+    background: linear-gradient(180deg, #4ade80 0%, #22c55e 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 7px 0 #14532d,
+        0 8px 0 #fff,
+        0 10px 20px rgba(0, 0, 0, 0.6),
+        inset 0 3px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-retro:active {
+    transform: translateY(3px);
+    box-shadow:
+        0 2px 0 #14532d,
+        0 3px 0 #fff,
+        inset 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-retro.small {
+    font-size: 0.55rem;
+    padding: 0.6rem 1rem;
+}
+
+/* ============================================
+   7. SEÇÕES - estilo "painel de configuração"
+   ============================================ */
+section {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: #fff;
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 3px solid #fff;
+    box-shadow:
+        0 4px 0 #7c2d12,
+        0 5px 12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    text-shadow:
+        2px 2px 0 #1e3a8a,
+        -1px -1px 0 #1e3a8a;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 3px solid #fff;
+    animation: none;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   8. EMULADOR - estilo "TV/Monitor PS1"
+   ============================================ */
+#emulator-container {
+    background: #000;
+    border: 8px solid #1e293b;
+    border-radius: 8px;
+    box-shadow:
+        0 0 0 4px #f59e0b,
+        0 0 0 8px #1e293b,
+        0 0 40px rgba(251, 191, 36, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+#emulator-container::before {
+    content: 'WE2000';
+    position: absolute;
+    top: -22px;
+    left: 12px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fbbf24;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #000;
+    z-index: 10;
+}
+
+.emulator-controls-panel {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
+
+/* Botões do painel - estilo "botão verde pequeno" */
+.file-upload-btn,
+.ctrl-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    padding: 0.7rem 0.8rem;
+    color: #fff;
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    border: 2px solid #fff;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 #14532d;
+    box-shadow:
+        0 3px 0 #14532d,
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.12s;
+    line-height: 1.4;
+}
+
+.file-upload-btn:hover,
+.ctrl-btn:hover {
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 0 #14532d,
+        0 5px 10px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.file-upload-btn:active,
+.ctrl-btn:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 1px 0 #14532d,
+        inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.file-upload-btn.small {
+    font-size: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    background: linear-gradient(180deg, #ea580c 0%, #c2410c 100%);
+    text-shadow: 1px 1px 0 #7c2d12;
+    box-shadow:
+        0 3px 0 #7c2d12,
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.bios-warning small {
+    color: #fbbf24;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* ============================================
+   9. CARDS DE TIME - estilo "grade de escudos"
+   ============================================ */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.team-card {
+    background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+    border: 2px solid #60a5fa;
+    border-radius: 4px;
+    padding: 0.7rem;
+    text-align: center;
+    transition: all 0.15s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.team-card::before {
+    display: none;
+}
+
+.team-card:hover {
+    transform: translateY(-3px);
+    border-color: #fbbf24;
+    box-shadow:
+        0 0 0 2px #fbbf24,
+        0 0 20px rgba(251, 191, 36, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+}
+
+.team-card .team-shield {
+    width: 60px;
+    height: 72px;
+    margin: 0 auto 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.team-card:hover .team-shield {
+    transform: scale(1.15);
+}
+
+.team-card .team-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    line-height: 1.5;
+    text-shadow:
+        1px 1px 0 #0f172a,
+        -1px -1px 0 #0f172a;
+    letter-spacing: 0.5px;
+}
+
+.team-card .team-city {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 1px;
+}
+
+.team-card .team-titles {
+    font-family: 'VT323', monospace;
+    font-size: 0.85rem;
+    color: #fbbf24;
+    margin-top: 0.3rem;
+    text-shadow: 0 0 4px #f59e0b;
+}
+
+/* ============================================
+   10. MODAL - estilo "popup PS1"
+   ============================================ */
+.modal {
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(6px);
+}
+
+.modal-content {
+    background: linear-gradient(180deg, #1e40af 0%, #1e293b 100%);
+    border: 4px solid #f59e0b;
+    border-radius: 8px;
+    box-shadow:
+        0 0 0 3px #fff,
+        0 0 40px rgba(251, 191, 36, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+}
+
+.modal-close {
+    background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    width: 34px;
+    height: 34px;
+    font-size: 0.75rem;
+    box-shadow:
+        0 3px 0 #7f1d1d,
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    font-family: 'Press Start 2P', monospace;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+    transform: translateY(-1px);
+}
+
+.modal-header {
+    border-bottom: 2px dashed #fbbf24;
+}
+
+.modal-header h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    color: #fbbf24;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000;
+    letter-spacing: 1px;
+}
+
+.modal-header p {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #fef3c7;
+}
+
+.modal-body {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    color: #e0f2fe;
+}
+
+.modal-body .stat-line {
+    border-bottom: 1px dotted #60a5fa;
+    padding: 0.5rem 0;
+}
+
+.modal-body .stat-line strong {
+    color: #fbbf24;
+    text-shadow: 0 0 6px rgba(251, 191, 36, 0.5);
+}
+
+/* ============================================
+   11. SOBRE E CHAT - painéis escuros
+   ============================================ */
+.about-content {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    padding: 1.2rem;
+    color: #e0f2fe;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    line-height: 1.7;
+}
+
+.about-list li {
+    padding: 0.3rem 0;
+    color: #fef3c7;
+}
+
+.chat-wrapper {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    padding: 0.9rem;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.chat-messages {
+    background: #020617;
+    border: 2px solid #1e40af;
+    border-radius: 4px;
+    padding: 0.7rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.chat-msg .user {
+    color: #fbbf24;
+}
+
+.chat-msg.system {
+    color: #60a5fa;
+}
+
+.chat-form input {
+    background: #020617;
+    border: 2px solid #60a5fa;
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    padding: 0.6rem;
+}
+
+.chat-form input:focus {
+    border-color: #fbbf24;
+    box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+/* ============================================
+   12. FOOTER
+   ============================================ */
+.site-footer {
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    border-top: 4px solid #f59e0b;
+    color: #94a3b8;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.site-footer .disclaimer {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   13. BACK-TO-TOP - botão de navegação
+   ============================================ */
+.back-to-top {
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    border: 3px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow:
+        0 4px 0 #7c2d12,
+        0 5px 12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    text-shadow: 1px 1px 0 #7c2d12;
+}
+
+.back-to-top:hover {
+    transform: translate(-2px, -2px);
+    box-shadow:
+        0 6px 0 #7c2d12,
+        0 7px 14px rgba(0, 0, 0, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   14. RESPONSIVO
+   ============================================ */
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .logo-jleague {
+        font-size: 0.65rem;
+    }
+
+    .logo-we {
+        font-size: 0.8rem;
+    }
+
+    .nav-link {
+        font-size: 0.5rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .section-title {
+        font-size: 0.65rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .teams-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        padding: 5px 12px;
+    }
+
+    .logo-jleague {
+        font-size: 0.55rem;
+    }
+
+    .hero-title {
+        font-size: 0.9rem;
+    }
+
+    .btn-retro {
+        font-size: 0.55rem;
+        padding: 0.7rem 1rem;
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "league": "J.League 2000",
+  "season": "1998/2000",
+  "teams": [
+    { "name": "Kashima Antlers",      "city": "Kashima",    "color": "#c8102e", "stadium": "Kashima Soccer Stadium" },
+    { "name": "Júbilo Iwata",          "city": "Iwata",      "color": "#0066cc", "stadium": "Yamaha Stadium" },
+    { "name": "Shimizu S-Pulse",       "city": "Shizuoka",   "color": "#ff6600", "stadium": "Nihondaira Stadium" },
+    { "name": "Yokohama F. Marinos",   "city": "Yokohama",   "color": "#003399", "stadium": "Nissan Stadium" },
+    { "name": "Urawa Red Diamonds",    "city": "Saitama",    "color": "#cc0000", "stadium": "Saitama Stadium" },
+    { "name": "Kashiwa Reysol",        "city": "Kashiwa",    "color": "#ffcc00", "stadium": "Hitachi Kashiwa Stadium" },
+    { "name": "Cerezo Osaka",          "city": "Osaka",      "color": "#ff69b4", "stadium": "Nagai Stadium" },
+    { "name": "Gamba Osaka",           "city": "Osaka",      "color": "#0033cc", "stadium": "Expo '70 Stadium" },
+    { "name": "Nagoya Grampus",        "city": "Nagoya",     "color": "#ff3300", "stadium": "Mizuho Stadium" },
+    { "name": "Sanfrecce Hiroshima",   "city": "Hiroshima",  "color": "#6633cc", "stadium": "Hiroshima Big Arch" },
+    { "name": "Avispa Fukuoka",        "city": "Fukuoka",    "color": "#0033aa", "stadium": "Hakatanomori Stadium" },
+    { "name": "Vissel Kobe",           "city": "Kobe",       "color": "#990000", "stadium": "Kobe Wing Stadium" }
+  ]
+}

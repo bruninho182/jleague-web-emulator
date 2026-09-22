@@ -1,0 +1,105 @@
+/* ============================================
+   RETRO.CSS - Efeitos visuais anos 2000 (v2)
+   Versão corrigida: sem pseudo-elementos problemáticos
+   ============================================ */
+
+/* Scanlines sutis — usando um container real em vez de body::after */
+.retro-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.10) 0px,
+        rgba(0, 0, 0, 0.10) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    opacity: 0.35;
+    display: none; /* Desativado por padrão para evitar o bug */
+}
+
+/* Vinheta sutil — usando box-shadow em vez de radial-gradient */
+.retro-vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+    box-shadow: inset 0 0 120px 30px rgba(0, 0, 0, 0.7);
+    display: none; /* Desativado por padrão */
+}
+
+/* Ativa os efeitos retro apenas em telas grandes */
+@media (min-width: 900px) {
+    .retro-overlay,
+    .retro-vignette {
+        display: block;
+    }
+}
+
+/* Animação de brilho pulsante */
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow:
+            0 0 5px var(--color-accent),
+            0 0 15px var(--color-accent);
+    }
+    50% {
+        text-shadow:
+            0 0 15px var(--color-accent),
+            0 0 30px var(--color-accent);
+    }
+}
+
+.section-title {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Cursor retrô */
+.ctrl-btn,
+.file-upload-btn,
+.btn-retro,
+.team-card,
+.nav-link,
+.modal-close,
+.back-to-top {
+    cursor: crosshair;
+}
+
+/* Scrollbar retrô */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* ============================================
+   BOTÕES PLAYSTATION NO EMULATORJS
+   ============================================ */
+.ejs_virtualGamepad_button,
+.ejs_virtualGamepad_button *,
+.ejs_control_text,
+.ejs_setting_button,
+button[class*="ejs_"],
+span[class*="ejs_"],
+div[class*="ejs_"] {
+    font-family: 'Noto Sans Symbols 2', 'VT323', monospace !important;
+}
+
+.ejs_virtualGamepad_button {
+    font-weight: bold !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    font-size: 1.2em !important;
+}

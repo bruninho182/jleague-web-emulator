@@ -1,0 +1,820 @@
+/* ============================================
+   TEAM-SELECTOR.CSS
+   Menu de seleção de times estilo WE2000
+   + Cor do time como identidade visual
+   ============================================ */
+
+/* ============ CONTAINER PRINCIPAL ============ */
+.team-selector {
+    /* Cores padrão (laranja) — sobrescritas via JS por time */
+    --team-color: #f59e0b;
+    --team-color2: #ffffff;
+    --team-glow: rgba(245, 158, 11, 0.55);
+    --team-glow-soft: rgba(245, 158, 11, 0.18);
+    --team-glow-strong: rgba(245, 158, 11, 0.85);
+
+    background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%);
+    border: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 1.2rem;
+    box-shadow:
+        0 0 0 3px #fff,
+        0 8px 24px rgba(0, 0, 0, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+}
+
+.team-selector::before {
+    content: 'WINNING ELEVEN 2000';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: 0.05em;
+}
+
+.team-selector > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   ABAS DE DIVISÃO
+   ============================================ */
+.division-tabs {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.division-tab {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    background: linear-gradient(180deg, #475569 0%, #1e293b 100%);
+    color: #94a3b8;
+    border: 3px solid #64748b;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #000;
+    box-shadow:
+        0 3px 0 #0f172a,
+        inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.15s;
+    line-height: 1.3;
+}
+
+.division-tab:hover {
+    background: linear-gradient(180deg, #64748b 0%, #334155 100%);
+    color: #e2e8f0;
+}
+
+.division-tab.active {
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    color: #fff;
+    border-color: #fff;
+    text-shadow:
+        2px 2px 0 #1e3a8a,
+        -1px -1px 0 #1e3a8a;
+    box-shadow:
+        0 3px 0 #7c2d12,
+        0 4px 10px rgba(251, 146, 60, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   PAINEL DUPLO
+   ============================================ */
+.team-panel-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   MAPA DO JAPÃO
+   ============================================ */
+.japan-map-wrap {
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(30, 90, 200, 0.4) 0%, transparent 70%),
+        linear-gradient(180deg, #0a1d4a 0%, #061237 100%);
+    border: 3px solid #60a5fa;
+    border-radius: 6px;
+    padding: 0.6rem;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.2rem 0.5rem;
+    border-bottom: 1px dashed #60a5fa;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.map-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fbbf24;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 1px;
+}
+
+.map-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.japan-map {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+}
+
+.japan-map-inner {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 850 / 1000;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 16px rgba(96, 165, 250, 0.35));
+}
+
+.japan-map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    filter: sepia(0.4) hue-rotate(-10deg) saturate(1.2) brightness(1.05);
+    opacity: 0.85;
+}
+
+.map-pins-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ============ PINOS ============ */
+.map-pin {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.pin-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fbbf24;
+    border: 1.5px solid #000;
+    box-shadow:
+        0 0 4px rgba(251, 191, 36, 0.9),
+        0 0 8px rgba(251, 191, 36, 0.5);
+    transition: all 0.18s;
+}
+
+.pin-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    font-family: 'VT323', monospace;
+    font-size: 11px;
+    line-height: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2px 5px;
+    border-radius: 2px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    border: 1px solid #fbbf24;
+    text-shadow: 1px 1px 0 #000;
+    z-index: 10;
+}
+
+.map-pin:hover { z-index: 20; }
+
+.map-pin:hover .pin-dot {
+    background: #fff;
+    border-color: #fbbf24;
+    width: 9px;
+    height: 9px;
+    box-shadow:
+        0 0 8px rgba(251, 191, 36, 1),
+        0 0 16px rgba(251, 191, 36, 0.6);
+}
+
+.map-pin:hover .pin-label { opacity: 1; }
+
+.map-pin.selected { z-index: 15; }
+
+.map-pin.selected .pin-dot {
+    background: #dc2626;
+    border-color: #fff;
+    border-width: 2px;
+    width: 10px;
+    height: 10px;
+    box-shadow:
+        0 0 8px rgba(220, 38, 38, 1),
+        0 0 16px rgba(220, 38, 38, 0.7);
+    animation: pinPulse 1.2s ease-in-out infinite;
+}
+
+.map-pin.selected .pin-label {
+    opacity: 1;
+    color: #fbbf24;
+    font-size: 12px;
+    bottom: auto;
+    top: 100%;
+    transform: translateX(-50%) translateY(2px);
+    background: rgba(0, 0, 0, 0.95);
+}
+
+@keyframes pinPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 8px rgba(220, 38, 38, 1),
+            0 0 16px rgba(220, 38, 38, 0.7);
+    }
+    50% {
+        box-shadow:
+            0 0 12px rgba(220, 38, 38, 1),
+            0 0 24px rgba(220, 38, 38, 0.9);
+    }
+}
+
+.map-pin.dimmed .pin-dot {
+    background: #64748b;
+    border-color: #334155;
+    opacity: 0.5;
+    box-shadow: none;
+}
+
+.map-pin.dimmed:hover .pin-dot {
+    background: #94a3b8;
+    opacity: 0.9;
+    box-shadow: 0 0 6px rgba(148, 163, 184, 0.5);
+}
+
+/* ============================================
+   PAINEL DE INFO DO TIME
+   ============================================ */
+.team-panel-top {
+    display: grid;
+    grid-template-columns: auto 1fr 280px;
+    gap: 1.2rem;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.85) 100%);
+    border: 3px solid var(--team-color);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 16px var(--team-glow-soft),
+        0 0 20px var(--team-glow-soft);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-panel-dual .team-panel-top {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    margin-bottom: 0;
+    align-content: start;
+}
+
+.team-panel-dual .ts-shield-container {
+    grid-row: 1 / 2;
+}
+
+.team-panel-dual .ts-info {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.team-panel-dual .ts-stats {
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+.ts-shield-container {
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, var(--team-glow-soft) 0%, transparent 70%);
+    border: 2px dashed var(--team-color);
+    border-radius: 6px;
+    padding: 0.4rem;
+    box-shadow:
+        0 0 12px var(--team-glow-soft),
+        inset 0 0 12px var(--team-glow-soft);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.ts-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.ts-info .ts-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.85rem;
+    color: #fbbf24;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000,
+        0 0 12px var(--team-glow-soft);
+    letter-spacing: 1px;
+    line-height: 1.4;
+    transition: text-shadow 0.4s ease;
+}
+
+.ts-info .ts-city {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Linha colorida sob o nome do time */
+.ts-info .ts-city::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: var(--team-color);
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+    box-shadow: 0 0 6px var(--team-color);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ============================================
+   BARRAS DE ESTATÍSTICAS
+   ============================================ */
+.ts-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.stat-bar-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.stat-bar-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    color: #fff;
+    text-align: right;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 0.5px;
+}
+
+.stat-bar-track {
+    position: relative;
+    height: 14px;
+    background: #020617;
+    border: 2px solid var(--team-color);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.4s ease;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    transition: width 0.4s ease;
+    position: relative;
+}
+
+.stat-bar-red {
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #dc2626 0px,
+            #dc2626 4px,
+            #b91c1c 4px,
+            #b91c1c 8px
+        );
+    box-shadow: inset 0 0 8px rgba(255, 100, 100, 0.5);
+}
+
+.stat-bar-yellow {
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #fbbf24 0px,
+            #fbbf24 4px,
+            #f59e0b 4px,
+            #f59e0b 8px
+        );
+    box-shadow: inset 0 0 8px rgba(255, 220, 100, 0.6);
+}
+
+.stat-bar-value {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.45rem;
+    color: #fff;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px -1px 0 #000;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ============================================
+   FICHA COMPLETA DO TIME
+   ============================================ */
+.ts-info-card {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0.5rem;
+}
+
+.team-info-card {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+    border: 2px solid var(--team-color);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.7),
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 16px var(--team-glow-soft);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.team-info-header {
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.35) 100%),
+        var(--team-color);
+    padding: 0.4rem 0.8rem;
+    border-bottom: 2px solid #fff;
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.4s ease;
+}
+
+.team-info-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.6),
+        -1px -1px 0 rgba(0, 0, 0, 0.6),
+        1px -1px 0 rgba(0, 0, 0, 0.6),
+        -1px 1px 0 rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+}
+
+.team-info-body {
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.team-info-row {
+    display: grid;
+    grid-template-columns: 20px 90px 1fr;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted #334155;
+}
+
+.team-info-row:last-of-type {
+    border-bottom: none;
+}
+
+.info-icon {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.info-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.4rem;
+    color: #60a5fa;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.info-value {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+    text-align: right;
+}
+
+.team-info-fact {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    background: linear-gradient(135deg, var(--team-glow-soft) 0%, rgba(0, 0, 0, 0) 100%);
+    border: 1px solid var(--team-color);
+    border-left: 4px solid var(--team-color);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 0.4rem;
+    align-items: start;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.fact-icon {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.fact-text {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    font-style: italic;
+}
+
+/* ============================================
+   GRADE DE ESCUDOS
+   ============================================ */
+.team-shield-grid-wrap {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 41, 59, 0.7) 100%);
+    border: 2px solid #60a5fa;
+    border-radius: 6px;
+    padding: 0.6rem;
+}
+
+.team-shield-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.35rem;
+}
+
+.shield-btn {
+    background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+    border: 2px solid #60a5fa;
+    border-radius: 4px;
+    padding: 0.3rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.4);
+    min-height: 60px;
+    aspect-ratio: 1 / 1.15;
+}
+
+.shield-btn:hover {
+    background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+    border-color: #fbbf24;
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 2px #fbbf24,
+        0 4px 8px rgba(251, 191, 36, 0.5);
+}
+
+.shield-btn.selected {
+    background: linear-gradient(180deg, #fb923c 0%, #ea580c 100%);
+    border-color: #fff;
+    box-shadow:
+        0 0 0 2px #fff,
+        0 0 16px rgba(251, 146, 60, 0.8),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    animation: selectedPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes selectedPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 0 2px #fff,
+            0 0 16px rgba(251, 146, 60, 0.8),
+            inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow:
+            0 0 0 2px #fff,
+            0 0 24px rgba(251, 146, 60, 1),
+            inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
+.shield-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+/* ============================================
+   LEGENDA DE DIVISÃO
+   ============================================ */
+.division-label {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fff;
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    padding: 0.3rem 0.8rem;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 #14532d;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   SUBTÍTULO DESCRITIVO DA SEÇÃO
+   ============================================ */
+.section-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    max-width: 720px;
+    border-left: 3px solid #fbbf24;
+    padding-left: 0.8rem;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 900px) {
+    .team-panel-dual {
+        grid-template-columns: 1fr;
+    }
+
+    .team-panel-top {
+        grid-template-columns: auto 1fr;
+    }
+
+    .ts-stats {
+        grid-column: 1 / -1;
+    }
+
+    .team-shield-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .ts-info .ts-name {
+        font-size: 0.7rem;
+    }
+
+    .japan-map-inner {
+        max-width: 320px;
+    }
+
+    .map-title {
+        font-size: 0.5rem;
+    }
+
+    .map-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .team-info-row {
+        grid-template-columns: 20px 80px 1fr;
+    }
+
+    .info-value {
+        font-size: 0.95rem;
+    }
+
+    .fact-text {
+        font-size: 0.9rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .team-panel-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .ts-shield-container {
+        margin: 0 auto;
+    }
+
+    .team-shield-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-bar-row {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .stat-bar-label {
+        font-size: 0.4rem;
+    }
+
+    .division-tab {
+        font-size: 0.5rem;
+        padding: 0.5rem 0.9rem;
+    }
+
+    .map-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .japan-map-inner {
+        max-width: 260px;
+    }
+
+    .pin-label {
+        font-size: 10px;
+    }
+
+    .map-pin.selected .pin-label {
+        font-size: 11px;
+    }
+
+    .team-info-row {
+        grid-template-columns: 18px 70px 1fr;
+        font-size: 0.9rem;
+    }
+
+    .info-label {
+        font-size: 0.35rem;
+    }
+
+    .info-value {
+        font-size: 0.9rem;
+    }
+
+    .team-info-title {
+        font-size: 0.4rem;
+    }
+
+    .fact-text {
+        font-size: 0.85rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-top: -0.5rem;
+        margin-bottom: 1rem;
+    }
+}

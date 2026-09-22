@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emulador online do clássico J.League Jikkyou Winning Eleven 2000 para PlayStation 1. Reviva o futebol japonês dos anos 2000!">
+    <meta name="keywords" content="J.League, Winning Eleven, PS1, emulador, futebol japonês, retro gaming">
+    <title>J.League WE 2000 · Emulador Online</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/retro.css">
+    <link rel="stylesheet" href="css/we2000-theme.css">
+    <link rel="stylesheet" href="css/team-selector.css">
+</head>
+<body>
+
+    <!-- ================= STATUS BAR ================= -->
+    <div class="status-bar">
+        <span class="status-dot online"></span>
+        <span>SISTEMA ONLINE</span>
+        <span class="status-sep">|</span>
+        <span id="clock">--:--:--</span>
+        <span class="status-sep">|</span>
+        <span>VISITANTES: <span id="visitor-count">001</span></span>
+    </div>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-jleague">J.LEAGUE</span>
+                <span class="logo-we">WINNING ELEVEN 2000</span>
+            </div>
+                        <nav class="main-nav">
+                <a href="#emulador" class="nav-link" data-sound="hover">Jogar</a>
+                <a href="#times" class="nav-link" data-sound="hover">Times</a>
+                <a href="#sobre" class="nav-link" data-sound="hover">Sobre</a>
+                <a href="#chat" class="nav-link" data-sound="hover">Chat</a>
+            </nav>
+        </div>
+        <div class="marquee-bar">
+            <div class="marquee-text">
+                ⚽ BEM-VINDO AO J.LEAGUE WINNING ELEVEN 2000 ONLINE ⚽ CARREGUE SUA ROM E JOGUE DIRETO NO NAVEGADOR ⚽
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">J.LEAGUE 2000</h1>
+            <p class="hero-subtitle">O clássico futebol japonês do PlayStation 1, agora no seu navegador.</p>
+            <a href="#emulador" class="btn-retro" data-sound="click">▶ INICIAR JOGO</a>
+        </div>
+        <div class="hero-particles"></div>
+    </section>
+
+    <!-- ================= EMULADOR ================= -->
+    <main>
+        <section id="emulador" class="emulator-section fade-in">
+            <h2 class="section-title">▸ EMULADOR</h2>
+
+            <div class="emulator-wrapper">
+                <div id="emulator-container">
+                    <div class="emulator-placeholder">
+                        <p>🎮 Carregue sua ROM do J.League Winning Eleven 2000 para começar</p>
+                    </div>
+                </div>
+
+                <div class="emulator-controls-panel">
+                    <div class="panel-group">
+                        <label for="rom-upload" class="file-upload-btn" data-sound="click">
+                            📁 Carregar ROM (.bin / .cue / .iso / .zip)
+                        </label>
+                        <input type="file" id="rom-upload" accept=".bin,.cue,.iso,.zip,.7z" hidden>
+                    </div>
+
+                    <div class="panel-group">
+                        <button id="btn-fullscreen" class="ctrl-btn" data-sound="click">⛶ Tela Cheia</button>
+                        <button id="btn-save" class="ctrl-btn" data-sound="click">💾 Salvar</button>
+                        <button id="btn-load" class="ctrl-btn" data-sound="click">📂 Carregar Save</button>
+                        <button id="btn-reset" class="ctrl-btn" data-sound="click">🔄 Reiniciar</button>
+                    </div>
+
+                    <div class="panel-group bios-warning">
+                        <small>⚠️ Você precisa fornecer sua própria BIOS (scph5501.bin).</small>
+                        <input type="file" id="bios-upload" accept=".bin" hidden>
+                        <label for="bios-upload" class="file-upload-btn small" data-sound="click">Carregar BIOS</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SELEÇÃO DE TIMES ================= -->
+        <section id="times" class="teams-section fade-in">
+            <h2 class="section-title">▸ CONHEÇA OS TIMES</h2>
+            <p class="section-subtitle">
+                Explore as 27 equipes da J.League 2000 · Veja estatísticas, estádios, títulos e curiosidades
+            </p>
+
+            <div class="team-selector">
+                <!-- Abas J1 / J2 -->
+                <div class="division-tabs">
+                    <button class="division-tab active" data-division="j1">J1 LEAGUE</button>
+                    <button class="division-tab" data-division="j2">J2 LEAGUE</button>
+                </div>
+
+                <!-- Painel duplo: MAPA + INFO DO TIME -->
+                <div class="team-panel-dual">
+                    <!-- Mapa do Japão -->
+                    <div class="japan-map-wrap">
+                        <div class="map-header">
+                            <span class="map-title">🗾 MAPA DO JAPÃO</span>
+                            <span class="map-subtitle">Clique num pino para saber mais</span>
+                        </div>
+                        <div id="japan-map" class="japan-map"></div>
+                    </div>
+
+                    <!-- Painel do time selecionado -->
+                    <div class="team-panel-top">
+                        <div class="ts-shield-container" id="ts-shield">
+                            <!-- Escudo via JS -->
+                        </div>
+                        <div class="ts-info">
+                            <div class="ts-name" id="ts-name">—</div>
+                            <div class="ts-city" id="ts-city">—</div>
+                        </div>
+                        <div class="ts-stats" id="ts-stats">
+                            <!-- Barras via JS -->
+                        </div>
+                        <!-- Ficha completa do time -->
+                        <div class="ts-info-card" id="ts-info-card">
+                            <!-- Preenchido via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade de escudos -->
+                <div class="team-shield-grid-wrap">
+                    <span class="division-label" id="division-label">J1 LEAGUE</span>
+                    <div class="team-shield-grid" id="team-shield-grid">
+                        <!-- Escudos via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SOBRE ================= -->
+        <section id="sobre" class="about-section fade-in">
+            <h2 class="section-title">▸ SOBRE O JOGO</h2>
+            <div class="about-content">
+                <p><strong>J.League Jikkyou Winning Eleven 2000</strong> foi lançado pela Konami em 2000 para PlayStation 1. Baseado na temporada de 1998 da J.League, traz as principais equipes do futebol japonês com o motor de física e a jogabilidade que consagrou a série Winning Eleven.</p>
+                <ul class="about-list">
+                    <li>🎮 Plataforma: PlayStation 1</li>
+                    <li>📅 Lançamento: 2000</li>
+                    <li>🏢 Desenvolvedora: Konami</li>
+                    <li>⚽ Ligas: J.League (Japão)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= CHAT ================= -->
+        <section id="chat" class="chat-section fade-in">
+            <h2 class="section-title">▸ CHAT DA COMUNIDADE</h2>
+            <div class="chat-wrapper">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-msg system">Sistema: Bem-vindo ao chat! (Em breve, em tempo real)</div>
+                </div>
+                <form class="chat-form" id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Digite sua mensagem..." maxlength="200" autocomplete="off">
+                    <button type="submit" class="btn-retro small" data-sound="click">ENVIAR</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= MODAL DE TIME ================= -->
+    <div id="team-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" data-sound="click">✕</button>
+            <div class="modal-header">
+                <div class="modal-shield" id="modal-shield"></div>
+                <div>
+                    <h3 id="modal-team-name"></h3>
+                    <p id="modal-team-city"></p>
+                </div>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
+    <button id="back-to-top" class="back-to-top" title="Voltar ao topo" data-sound="click">▲</button>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <p>© 2026 J.League WE 2000 Web Project · Feito por fãs, para fãs.</p>
+        <p class="disclaimer">Este site não distribui ROMs nem BIOS. Todo conteúdo é de propriedade da Konami / J.League.</p>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="js/config.js"></script>
+    <script src="js/retroaudio.js"></script>
+    <script src="js/loader.js"></script>
+    <script src="js/teams.js"></script>
+    <script src="js/team-selector.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
