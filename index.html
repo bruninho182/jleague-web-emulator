@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/we2000-theme.css">
     <link rel="stylesheet" href="css/team-selector.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
 </head>
 <body>
 
@@ -43,6 +44,7 @@
             <nav class="main-nav">
                 <a href="#emulador" class="nav-link" data-sound="hover">Jogar</a>
                 <a href="#times" class="nav-link" data-sound="hover">Times</a>
+                <a href="#jogadores" class="nav-link" data-sound="hover">Jogadores</a>
                 <a href="#sobre" class="nav-link" data-sound="hover">Sobre</a>
                 <a href="#chat" class="nav-link" data-sound="hover">Chat</a>
                 <button id="open-dev-modal" class="nav-link nav-link-dev" data-sound="click" type="button">
@@ -161,6 +163,31 @@
             </div>
         </section>
 
+                <!-- ================= ENCICLOPÉDIA DE JOGADORES ================= -->
+        <section id="jogadores" class="players-section fade-in">
+            <h2 class="section-title">▸ ENCICLOPÉDIA DE JOGADORES</h2>
+            <p class="section-subtitle">
+                Conheça os 20 craques que marcaram a J.League em 2000 · Biografias, conquistas e curiosidades
+            </p>
+
+            <div class="players-container">
+                <!-- Barra de busca -->
+                <div class="players-search-wrap">
+                    <i class="fas fa-search players-search-icon"></i>
+                    <input type="text" 
+                           id="player-search" 
+                           class="players-search-input"
+                           placeholder="Buscar por nome, time, posição ou país..."
+                           autocomplete="off">
+                </div>
+
+                <!-- Grade de jogadores -->
+                <div id="players-grid" class="players-grid">
+                    <!-- Cards via JS -->
+                </div>
+            </div>
+        </section>
+
         <!-- ================= CHAT ================= -->
         <section id="chat" class="chat-section fade-in">
             <h2 class="section-title">▸ CHAT DA COMUNIDADE</h2>
@@ -191,6 +218,29 @@
         </div>
     </div>
 
+        <!-- ================= MODAL DO JOGADOR ================= -->
+    <div id="player-modal" class="modal">
+        <div class="modal-content player-modal-content">
+            <button class="modal-close" id="pm-close" data-sound="click" type="button">✕</button>
+            
+            <div class="pm-header">
+                <div class="pm-avatar-wrap" id="pm-shield">
+                    <!-- Foto via JS -->
+                </div>
+                <div class="pm-title">
+                    <span class="pm-name" id="pm-name">—</span>
+                    <span class="pm-nickname" id="pm-nickname">—</span>
+                    <span class="pm-team" id="pm-team">—</span>
+                </div>
+            </div>
+
+            <div class="pm-body" id="pm-body">
+                <!-- Conteúdo via JS -->
+            </div>
+        </div>
+    </div>
+
+
     <!-- ================= MODAL DO DEV ================= -->
     <div id="dev-modal" class="modal">
         <div class="modal-content dev-modal-content">
@@ -211,15 +261,16 @@
                 </div>
                 <div class="dev-title">
                     <span class="dev-name">Bruno Ferreira</span>
-                    <span class="dev-role">Desenvolvedor & Fã de WE2000</span>
+                    <span class="dev-role">Desenvolvedor & Fã de Winning Eleven</span>
                 </div>
             </div>
 
             <div class="dev-body">
                 <p class="dev-bio">
-                    Apaixonado por futebol japonês e jogos de PlayStation 1, 
+                    Apaixonado por futebol japonês e jogos de PlayStation, 
                     criei este projeto para preservar e celebrar um dos clássicos 
-                    mais icônicos da era de ouro do Winning Eleven. 🎮⚽
+                    mais icônicos da era de ouro do Winning Eleven. Torcedor fanático 
+                    do Shimizu S-Pulse🧡🎮⚽.
                 </p>
                 <p class="dev-bio">
                     Se você também ama a J.League dos anos 2000, me chama pra trocar ideia!
@@ -234,7 +285,7 @@
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/SEU-LINKEDIN" 
+                    <a href="https://www.linkedin.com/in/bruno-ferreira-6361b016b/" 
                        target="_blank" 
                        rel="noopener noreferrer" 
                        class="dev-social-link linkedin"
@@ -242,7 +293,7 @@
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
-                    <a href="mailto:seu@email.com" 
+                    <a href="mailto:brunopf1996@gmail.com" 
                        class="dev-social-link email"
                        data-sound="click">
                         <i class="fas fa-envelope"></i>
@@ -253,7 +304,7 @@
 
             <div class="dev-footer">
                 <span class="dev-footer-text">
-                    <i class="fas fa-heart"></i> Feito com paixão em 2026
+                    <i class="fas fa-heart"></i> God is good all the time.
                 </span>
             </div>
         </div>
@@ -264,7 +315,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
-        <p class="footer-copyright">© 2026 J.League WE 2000 Web Project · Feito por fãs, para fãs.</p>
+        <p class="footer-copyright">© 2026 J.League WE 2000 · Feito por fã, para fãs.</p>
         
         <p class="footer-credits">
             <i class="fas fa-code"></i> Desenvolvido por
@@ -282,6 +333,7 @@
     <script src="js/loader.js"></script>
     <script src="js/teams.js"></script>
     <script src="js/team-selector.js"></script>
+    <script src="js/players-encyclopedia.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

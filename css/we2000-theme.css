@@ -1186,3 +1186,573 @@ body > .modal-content {
         font-size: 1.3rem;
     }
 }
+/* ============================================
+   16. ENCICLOPÉDIA DE JOGADORES
+   ============================================ */
+
+.players-container {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Barra de busca */
+.players-search-wrap {
+    position: relative;
+    margin-bottom: 1.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.players-search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fbbf24;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.players-search-input {
+    width: 100%;
+    padding: 0.7rem 1rem 0.7rem 2.5rem;
+    background: #020617;
+    border: 2px solid #60a5fa;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.players-search-input::placeholder {
+    color: #64748b;
+}
+
+.players-search-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 0 16px rgba(251, 191, 36, 0.5);
+}
+
+/* Grade de jogadores */
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+/* Card do jogador */
+.player-card {
+    background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+    border: 2px solid var(--player-color, #f59e0b);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    position: relative;
+    box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.player-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #fbbf24;
+    box-shadow:
+        0 0 0 2px #fbbf24,
+        0 0 24px var(--player-color, rgba(251, 191, 36, 0.5)),
+        0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.player-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-bottom: 2px solid var(--player-color, #f59e0b);
+    position: relative;
+    z-index: 2;
+}
+
+.player-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    text-shadow:
+        2px 2px 0 #000,
+        0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+.player-position {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--player-color, #f59e0b);
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.player-photo-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    border-bottom: 2px solid var(--player-color, #f59e0b);
+}
+
+.player-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(1.05) contrast(1.05) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.player-card:hover .player-photo {
+    transform: scale(1.05);
+    filter: saturate(1.15) contrast(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+}
+
+.player-photo-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #fbbf24;
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    display: flex;
+}
+
+/* Info */
+.player-info {
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.player-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fff;
+    line-height: 1.4;
+    text-shadow:
+        1px 1px 0 #000,
+        0 0 6px var(--player-color, rgba(251, 191, 36, 0.5));
+    letter-spacing: 0.5px;
+}
+
+.player-nickname {
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    font-style: italic;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.player-team {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.player-nationality {
+    font-family: 'VT323', monospace;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* Footer do card */
+.player-card-footer {
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-details-btn {
+    width: 100%;
+    padding: 0.4rem;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    background: linear-gradient(180deg, #16a34a 0%, #15803d 100%);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0 #14532d;
+    box-shadow:
+        0 2px 0 #14532d,
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.player-details-btn:hover {
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+    transform: translateY(-1px);
+}
+
+.player-details-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 #14532d;
+}
+
+/* Estado vazio */
+.players-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #94a3b8;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+}
+
+.players-empty .empty-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+/* ============================================
+   MODAL DO JOGADOR
+   ============================================ */
+.player-modal-content {
+    max-width: 540px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.pm-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%),
+        var(--player-color, #ea580c);
+    border-bottom: 3px solid #f59e0b;
+    position: relative;
+    overflow: hidden;
+}
+
+.pm-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent 0px,
+            transparent 12px,
+            rgba(255, 255, 255, 0.05) 12px,
+            rgba(255, 255, 255, 0.05) 13px
+        );
+    pointer-events: none;
+}
+
+.pm-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    z-index: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fbbf24;
+    background: #0f172a;
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 16px rgba(251, 191, 36, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pm-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pm-photo-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #fbbf24;
+}
+
+.pm-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    z-index: 1;
+}
+
+.pm-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.8rem;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.6),
+        -1px -1px 0 rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+    line-height: 1.3;
+}
+
+.pm-nickname {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    font-style: italic;
+}
+
+.pm-team {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #fff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.pm-body {
+    padding: 1.2rem;
+    background: linear-gradient(180deg, #1e40af 0%, #1e293b 100%);
+    max-height: 55vh;
+    overflow-y: auto;
+}
+
+.pm-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.pm-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem 0.6rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 3px solid #fbbf24;
+    border-radius: 3px;
+}
+
+.pm-info-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.4rem;
+    color: #60a5fa;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.pm-info-value {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.pm-section {
+    margin-bottom: 1rem;
+}
+
+.pm-section:last-child {
+    margin-bottom: 0;
+}
+
+.pm-section-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fbbf24;
+    margin-bottom: 0.5rem;
+    text-shadow:
+        2px 2px 0 #000,
+        -1px -1px 0 #000;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.pm-bio {
+    font-family: 'VT323', monospace;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #e0f2fe;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+    padding: 0.6rem 0.8rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-left: 4px solid var(--player-color, #fbbf24);
+    border-radius: 4px;
+}
+
+.pm-achievements {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-left: 0;
+}
+
+.pm-achievements li {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+    padding: 0.3rem 0.6rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #22c55e;
+    border-radius: 3px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.pm-achievements li::before {
+    content: '🏆';
+    font-size: 0.9rem;
+}
+
+.pm-curiosity {
+    padding: 0.7rem 0.8rem;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 146, 60, 0.05) 100%);
+    border: 1px solid #fbbf24;
+    border-left: 4px solid #fbbf24;
+    border-radius: 4px;
+}
+
+.pm-curiosity p {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    font-style: italic;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .players-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .players-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 0.6rem;
+    }
+
+    .player-name {
+        font-size: 0.45rem;
+    }
+
+    .pm-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .pm-title {
+        align-items: center;
+    }
+
+    .pm-name {
+        font-size: 0.7rem;
+    }
+
+    .pm-avatar-wrap {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ============================================
+   17. BANDEIRAS DOS PAÍSES (FLAG-ICONS)
+   ============================================ */
+
+.player-flag {
+    display: inline-block;
+    width: 20px;
+    height: 14px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.6),
+        0 1px 2px rgba(0, 0, 0, 0.4);
+    background-size: cover;
+    background-position: center;
+    margin-right: 0.3rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.player-card:hover .player-flag {
+    transform: scale(1.15);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.6),
+        0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+/* Bandeira no modal (um pouco maior) */
+.pm-info-value .player-flag {
+    width: 24px;
+    height: 17px;
+    margin-right: 0.4rem;
+    box-shadow:
+        0 0 0 1.5px rgba(0, 0, 0, 0.7),
+        0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Ajuste do texto de nacionalidade com bandeira */
+.player-nationality {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-shadow: 1px 1px 0 #000;
+    padding: 0.15rem 0;
+}
+
+.pm-info-value {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

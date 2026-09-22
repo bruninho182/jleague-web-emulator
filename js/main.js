@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initBackToTop();
     initDevModal();
+    PlayersEncyclopedia.init();
 });
 
 /* ============ STATUS BAR (relógio + visitantes) ============ */

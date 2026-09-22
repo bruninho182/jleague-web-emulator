@@ -1,0 +1,420 @@
+{
+  "players": [
+    {
+      "id": "nakamura",
+      "name": "Shunsuke Nakamura",
+      "nickname": "Naka",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "position": "Meia-Atacante",
+      "number": 10,
+      "nationality": "Japão",
+      "birthDate": "1978-06-24",
+      "height": "178 cm",
+      "photo": "assets/players/nakamura.jpg",
+      "bio": "Considerado um dos maiores talentos da história do futebol japonês, Nakamura foi eleito MVP da J.League em 2000 aos 22 anos. Ficou famoso por suas cobranças de falta perfeitas e passes milimétricos, que o levaram ao Celtic da Escócia, onde se tornou ídolo absoluto.",
+      "achievements": [
+        "MVP da J.League 2000",
+        "J.League Best Eleven 1999, 2000",
+        "Campeão escocês 3x (Celtic)",
+        "Asian Cup 2000, 2004"
+      ],
+      "curiosity": "Nakamura é famoso por treinar cobranças de falta por horas após os treinos. Ele chutava a bola contra uma parede com um alvo desenhado, aperfeiçoando a técnica que o consagrou."
+    },
+    {
+      "id": "nakayama",
+      "name": "Masashi Nakayama",
+      "nickname": "Gon",
+      "team": "Júbilo Iwata",
+      "teamColor": "#0066cc",
+      "position": "Atacante",
+      "number": 9,
+      "nationality": "Japão",
+      "birthDate": "1967-09-23",
+      "height": "178 cm",
+      "photo": "assets/players/nakayama.jpg",
+      "bio": "Artilheiro nato e ídolo máximo do Júbilo Iwata, Nakayama foi o primeiro jogador a marcar um hat-trick na história da J.League. Em 2000, foi o artilheiro do campeonato com 20 gols, aos 33 anos.",
+      "achievements": [
+        "Artilheiro da J.League 2000 (20 gols)",
+        "MVP da J.League 1998",
+        "J.League Best Eleven 1997, 1998, 2000",
+        "Copa da Ásia 2000"
+      ],
+      "curiosity": "Nakayama marcou 157 gols em 301 jogos pelo Júbilo Iwata, sendo um dos maiores artilheiros da história da J.League."
+    },
+    {
+      "id": "miura",
+      "name": "Kazuyoshi Miura",
+      "nickname": "King Kazu",
+      "team": "Kyoto Purple Sanga",
+      "teamColor": "#6633aa",
+      "position": "Atacante",
+      "number": 11,
+      "nationality": "Japão",
+      "birthDate": "1967-02-26",
+      "height": "177 cm",
+      "photo": "assets/players/miura.jpg",
+      "bio": "Lenda viva do futebol japonês, King Kazu é o jogador mais velho em atividade no mundo. Em 2000, aos 33 anos, marcou 17 gols em 30 jogos pelo Kyoto Purple Sanga. Sua carreira atravessa décadas e inspira gerações.",
+      "achievements": [
+        "Jogador mais velho em atividade no mundo",
+        "Artilheiro da J.League 1993, 1994",
+        "MVP da J.League 1993",
+        "98 jogos pela Seleção Japonesa (55 gols)"
+      ],
+      "curiosity": "Kazu começou a carreira profissional em 1986 e, aos 58 anos, ainda joga profissionalmente no Atletico Suzuka, da quarta divisão japonesa."
+    },
+    {
+      "id": "inamoto",
+      "name": "Junichi Inamoto",
+      "nickname": "Ina",
+      "team": "Gamba Osaka",
+      "teamColor": "#0033cc",
+      "position": "Volante",
+      "number": 6,
+      "nationality": "Japão",
+      "birthDate": "1979-09-18",
+      "height": "181 cm",
+      "photo": "assets/players/inamoto.jpg",
+      "bio": "Revelado pelo Gamba Osaka, Inamoto foi o primeiro japonês a jogar na Premier League inglesa, defendendo Arsenal, Fulham e West Bromwich. Em 2000, era um dos jovens mais promissores do futebol japonês.",
+      "achievements": [
+        "Primeiro japonês na Premier League",
+        "Copa da Ásia 2000",
+        "82 jogos pela Seleção Japonesa",
+        "Gol histórico contra a Rússia na Copa 2002"
+      ],
+      "curiosity": "Inamoto estreou profissionalmente aos 17 anos e 6 meses, o mais jovem da história da J.League na época."
+    },
+    {
+      "id": "ono",
+      "name": "Shinji Ono",
+      "nickname": "Tensai (Gênio)",
+      "team": "Urawa Red Diamonds",
+      "teamColor": "#cc0000",
+      "position": "Meia-Atacante",
+      "number": 10,
+      "nationality": "Japão",
+      "birthDate": "1979-09-27",
+      "height": "175 cm",
+      "photo": "assets/players/ono.jpg",
+      "bio": "Apelidado de 'Gênio' no Japão, Ono foi eleito o Jogador Asiático do Ano em 2002. Sua visão de jogo e técnica refinada o tornaram um dos meias mais criativos de sua geração.",
+      "achievements": [
+        "Asian Footballer of the Year 2002",
+        "J.League Rookie of the Year 1998",
+        "Copa da UEFA 2002 (Feyenoord)",
+        "3 Copas do Mundo (1998, 2002, 2006)"
+      ],
+      "curiosity": "Ono fez parte da seleção japonesa na Copa de 1998 com apenas 18 anos, sendo um dos mais jovens da história do torneio."
+    },
+    {
+      "id": "takahara",
+      "name": "Naohiro Takahara",
+      "nickname": "Taka",
+      "team": "Júbilo Iwata",
+      "teamColor": "#0066cc",
+      "position": "Atacante",
+      "number": 9,
+      "nationality": "Japão",
+      "birthDate": "1979-06-04",
+      "height": "181 cm",
+      "photo": "assets/players/takahara.jpg",
+      "bio": "Atacante completo, Takahara foi um dos primeiros japoneses a brilhar na Bundesliga alemã, defendendo Hamburgo e Eintracht Frankfurt. Sua combinação de força física e técnica o tornava um pesadelo para os zagueiros.",
+      "achievements": [
+        "23 gols em 57 jogos pela Seleção",
+        "Copa da Ásia 2000",
+        "Artilheiro da J.League 2001, 2002",
+        "Destaque na Bundesliga"
+      ],
+      "curiosity": "Takahara foi o primeiro japonês a ser artilheiro de uma liga europeia, quando marcou 21 gols pelo Hamburgo em 2007."
+    },
+    {
+      "id": "kawaguchi",
+      "name": "Yoshikatsu Kawaguchi",
+      "nickname": "Yoshi",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "position": "Goleiro",
+      "number": 1,
+      "nationality": "Japão",
+      "birthDate": "1975-08-15",
+      "height": "179 cm",
+      "photo": "assets/players/kawaguchi.jpg",
+      "bio": "Um dos maiores goleiros da história do Japão, Kawaguchi defendeu a seleção em 116 partidas, sendo um dos jogadores com mais caps na história do país. Sua liderança e reflexos o tornaram um símbolo do futebol japonês.",
+      "achievements": [
+        "116 jogos pela Seleção Japonesa",
+        "Copa da Ásia 2000, 2004",
+        "J.League Best Eleven 2000",
+        "Capitão da Seleção Japonesa"
+      ],
+      "curiosity": "Kawaguchi jogou profissionalmente até os 43 anos, encerrando a carreira no Sagamihara em 2019."
+    },
+    {
+      "id": "morioka",
+      "name": "Ryuzo Morioka",
+      "nickname": "Ryu",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "position": "Zagueiro",
+      "number": 4,
+      "nationality": "Japão",
+      "birthDate": "1975-10-07",
+      "height": "180 cm",
+      "photo": "assets/players/morioka.jpg",
+      "bio": "Zagueiro elegante e seguro, Morioka foi eleito o melhor defensor da Copa da Ásia 2000. Sua capacidade de leitura de jogo e saída de bola limpa o tornaram um dos melhores zagueiros da sua geração.",
+      "achievements": [
+        "Melhor Defensor da Copa da Ásia 2000",
+        "Copa da Ásia 2000",
+        "J.League Best Eleven 2000",
+        "38 jogos pela Seleção Japonesa"
+      ],
+      "curiosity": "Morioka começou a carreira no Kashima Antlers, onde foi companheiro de Zico, antes de se transferir para o Shimizu S-Pulse."
+    },
+    {
+      "id": "alex",
+      "name": "Alessandro Santos",
+      "nickname": "Alex",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "position": "Meia",
+      "number": 8,
+      "nationality": "Japão/Brasil",
+      "birthDate": "1977-07-20",
+      "height": "178 cm",
+      "photo": "assets/players/alex.jpg",
+      "bio": "Brasileiro naturalizado japonês, Alex foi eleito MVP da J.League em 1999 e se tornou um dos principais nomes do futebol japonês nos anos 2000. Sua habilidade nos dribles e chutes potentes o tornaram um ídolo.",
+      "achievements": [
+        "MVP da J.League 1999",
+        "J.League Best Eleven 1999, 2000",
+        "Copa da Ásia 2004",
+        "2 Copas do Mundo (2002, 2006)"
+      ],
+      "curiosity": "Alex nasceu no Brasil, mas se naturalizou japonês em 2001 para poder defender a seleção do Japão."
+    },
+    {
+      "id": "dunga",
+      "name": "Dunga",
+      "nickname": "Capitão",
+      "team": "Júbilo Iwata",
+      "teamColor": "#0066cc",
+      "position": "Volante",
+      "number": 8,
+      "nationality": "Brasil",
+      "birthDate": "1963-10-31",
+      "height": "176 cm",
+      "photo": "assets/players/dunga.jpg",
+      "bio": "Campeão mundial com o Brasil em 1994, Dunga trouxe sua experiência e liderança para o Júbilo Iwata. Sua passagem pela J.League foi marcante, sendo eleito MVP do campeonato em 1997.",
+      "achievements": [
+        "Campeão do Mundo 1994 (Brasil)",
+        "MVP da J.League 1997",
+        "J.League Best Eleven 1997, 1998",
+        "Capitão da Seleção Brasileira"
+      ],
+      "curiosity": "Dunga foi o primeiro jogador brasileiro campeão mundial a atuar na J.League, abrindo portas para outros grandes nomes."
+    },
+    {
+      "id": "nishizawa",
+      "name": "Akinori Nishizawa",
+      "nickname": "Nishi",
+      "team": "Cerezo Osaka",
+      "teamColor": "#ff69b4",
+      "position": "Atacante",
+      "number": 9,
+      "nationality": "Japão",
+      "birthDate": "1976-06-18",
+      "height": "180 cm",
+      "photo": "assets/players/nishizawa.jpg",
+      "bio": "Artilheiro do Cerezo Osaka no início dos anos 2000, Nishizawa foi um dos grandes nomes da J.League na época. Sua capacidade de finalização o levou à seleção japonesa e a uma passagem pelo futebol inglês.",
+      "achievements": [
+        "Artilheiro do Cerezo Osaka",
+        "Copa da Ásia 2000",
+        "Jogador da Seleção Japonesa na Copa 2002"
+      ],
+      "curiosity": "Nishizawa foi um dos poucos jogadores japoneses a marcar um hat-trick na J.League nos anos 2000."
+    },
+    {
+      "id": "hong",
+      "name": "Hong Myung-bo",
+      "nickname": "Mestre",
+      "team": "Kashiwa Reysol",
+      "teamColor": "#ffcc00",
+      "position": "Zagueiro",
+      "number": 20,
+      "nationality": "Coreia do Sul",
+      "birthDate": "1969-02-12",
+      "height": "182 cm",
+      "photo": "assets/players/hong.jpg",
+      "bio": "Considerado o maior zagueiro da história do futebol asiático, Hong Myung-bo foi eleito para o Best XI da J.League em 2000. Sua liderança e elegância defensiva o tornaram um dos jogadores mais respeitados da Ásia.",
+      "achievements": [
+        "J.League Best Eleven 2000",
+        "4 Copas do Mundo (1990, 1994, 1998, 2002)",
+        "Bronze na Copa do Mundo 2002",
+        "Asian Footballer of the Year 2002"
+      ],
+      "curiosity": "Hong foi o capitão da Coreia do Sul na histórica campanha do 4º lugar na Copa do Mundo de 2002."
+    },
+    {
+      "id": "yoo",
+      "name": "Yoo Sang-chul",
+      "nickname": "Yoo",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "position": "Meia-Atacante",
+      "number": 8,
+      "nationality": "Coreia do Sul",
+      "birthDate": "1971-10-18",
+      "height": "181 cm",
+      "photo": "assets/players/yoo.jpg",
+      "bio": "Meia completo e goleador, Yoo Sang-chul foi um dos grandes destaques da J.League em 2000, marcando 17 gols pelo Yokohama F. Marinos. Sua capacidade de chegar à frente e finalizar o tornava único.",
+      "achievements": [
+        "17 gols na J.League 2000",
+        "Melhor Jogador da J.League (fase)",
+        "4 Copas do Mundo (1994, 1998, 2002, 2006)",
+        "Copa da Ásia 2000"
+      ],
+      "curiosity": "Yoo foi um dos primeiros coreanos a brilhar na J.League, ajudando a quebrar barreiras entre os dois países no futebol."
+    },
+    {
+      "id": "stojkovic",
+      "name": "Dragan Stojkovic",
+      "nickname": "Pixi",
+      "team": "Nagoya Grampus",
+      "teamColor": "#ff3300",
+      "position": "Meia-Atacante",
+      "number": 10,
+      "nationality": "Sérvia",
+      "birthDate": "1965-03-03",
+      "height": "175 cm",
+      "photo": "assets/players/stojkovic.jpg",
+      "bio": "Gênio sérvio do futebol, Stojkovic encantou o Japão com sua técnica e visão de jogo. Foi um dos grandes ídolos do Nagoya Grampus e é considerado um dos maiores estrangeiros a atuar na J.League.",
+      "achievements": [
+        "Ídolo do Nagoya Grampus",
+        "J.League Best Eleven 1995, 1997, 1998, 2000",
+        "Estrela da Seleção Iugoslava",
+        "Técnico do ano da J.League 2010"
+      ],
+      "curiosity": "Stojkovic se aposentou em 2001 e se tornou técnico do Nagoya Grampus, onde continua sendo uma lenda."
+    },
+    {
+      "id": "tuto",
+      "name": "Tuto",
+      "nickname": "Tuto",
+      "team": "FC Tokyo",
+      "teamColor": "#003399",
+      "position": "Atacante",
+      "number": 9,
+      "nationality": "Brasil",
+      "birthDate": "1978-07-02",
+      "height": "182 cm",
+      "photo": "assets/players/tuto.jpg",
+      "bio": "Centroavante brasileiro, Tuto foi o artilheiro do FC Tokyo em 2000, marcando 17 gols em sua primeira temporada na J1 League. Sua força física e faro de gol o tornaram um dos atacantes mais temidos do campeonato.",
+      "achievements": [
+        "17 gols na J.League 2000",
+        "Artilheiro do FC Tokyo",
+        "Primeiro gol da história do FC Tokyo na J1"
+      ],
+      "curiosity": "Tuto marcou o primeiro gol da história do FC Tokyo na J1 League, em 2000, na vitória por 1-0 sobre o Yokohama F. Marinos."
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "nickname": "Emerson",
+      "team": "Consadole Sapporo",
+      "teamColor": "#cc0000",
+      "position": "Atacante",
+      "number": 9,
+      "nationality": "Brasil",
+      "birthDate": "1978-12-06",
+      "height": "182 cm",
+      "photo": "assets/players/emerson.jpg",
+      "bio": "Artilheiro implacável, Emerson marcou incríveis 31 gols em 34 jogos pelo Consadole Sapporo na J2 em 2000, ajudando o clube a conquistar o acesso à J1. Sua passagem pela J.League foi marcada por gols em série.",
+      "achievements": [
+        "31 gols na J2 2000",
+        "Artilheiro da J2 2000",
+        "MVP da J.League 2003 (Urawa Reds)",
+        "Artilheiro da J.League 2003, 2004"
+      ],
+      "curiosity": "Emerson chegou ao Japão em 2000, aos 21 anos, e se tornou um dos maiores artilheiros da história da J.League, com 71 gols na primeira divisão."
+    },
+    {
+      "id": "bebeto",
+      "name": "Bebeto",
+      "nickname": "Bebeto",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "position": "Atacante",
+      "number": 8,
+      "nationality": "Brasil",
+      "birthDate": "1964-02-16",
+      "height": "176 cm",
+      "photo": "assets/players/bebeto.jpg",
+      "bio": "Campeão mundial com o Brasil em 1994, Bebeto trouxe toda sua experiência e classe para o Kashima Antlers em 2000. Apesar da idade avançada, ainda mostrava lampejos de genialidade.",
+      "achievements": [
+        "Campeão do Mundo 1994 (Brasil)",
+        "Ídolo do Flamengo e Vasco",
+        "J.League Best Eleven 2000"
+      ],
+      "curiosity": "Bebeto é famoso pela comemoração do 'bebê' na Copa de 1994, dedicada ao seu filho recém-nascido."
+    },
+    {
+      "id": "bismarck",
+      "name": "Bismarck",
+      "nickname": "Bismarck",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "position": "Meia-Atacante",
+      "number": 10,
+      "nationality": "Brasil",
+      "birthDate": "1969-09-17",
+      "height": "177 cm",
+      "photo": "assets/players/bismarck.jpg",
+      "bio": "Meia criativo e experiente, Bismarck foi peça fundamental no título do Kashima Antlers em 2000. Sua capacidade de criar jogadas e finalizar de fora da área o tornavam um jogador imprevisível.",
+      "achievements": [
+        "Campeão da J.League 2000",
+        "J.League Best Eleven 2000",
+        "Ídolo do Kashima Antlers"
+      ],
+      "curiosity": "Bismarck jogou no Kashima Antlers de 1997 a 2001, sendo um dos estrangeiros mais queridos pela torcida."
+    },
+    {
+      "id": "akita",
+      "name": "Yutaka Akita",
+      "nickname": "Akita",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "position": "Zagueiro",
+      "number": 2,
+      "nationality": "Japão",
+      "birthDate": "1970-08-06",
+      "height": "180 cm",
+      "photo": "assets/players/akita.jpg",
+      "bio": "Zagueiro clássico e seguro, Akita foi um dos pilares da defesa do Kashima Antlers por mais de uma década. Sua liderança e consistência o tornaram um dos melhores zagueiros da história da J.League.",
+      "achievements": [
+        "4 títulos da J.League",
+        "J.League Best Eleven 2000",
+        "Copa da Ásia 2000",
+        "44 jogos pela Seleção Japonesa"
+      ],
+      "curiosity": "Akita jogou 12 temporadas pelo Kashima Antlers, sendo um dos jogadores com mais títulos na história do clube."
+    },
+    {
+      "id": "matsuda",
+      "name": "Naoki Matsuda",
+      "nickname": "Matsu",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "position": "Zagueiro",
+      "number": 3,
+      "nationality": "Japão",
+      "birthDate": "1977-03-14",
+      "height": "183 cm",
+      "photo": "assets/players/matsuda.jpg",
+      "bio": "Zagueiro moderno e técnico, Matsuda foi um dos melhores defensores da sua geração. Tricampeão da J.League pelo Yokohama F. Marinos, ele era conhecido pela elegância e pela capacidade de sair jogando.",
+      "achievements": [
+        "3 títulos da J.League",
+        "J.League Best Eleven 2000",
+        "Copa da Ásia 2000, 2004",
+        "40 jogos pela Seleção Japonesa"
+      ],
+      "curiosity": "Matsuda faleceu prematuramente em 2011, aos 34 anos, deixando um legado de profissionalismo e humildade no futebol japonês."
+    }
+  ]
+}
