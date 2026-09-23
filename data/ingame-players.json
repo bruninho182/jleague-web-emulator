@@ -58,14 +58,14 @@
       }
     },
     {
-      "id": "inamoto",
-      "name": "Junichi Inamoto",
-      "team": "Gamba Osaka",
+      "id": "fujimoto",
+      "name": "Fujimoto",
+      "team": "Sanfrecce Hiroshima",
       "teamColor": "#0033cc",
-      "shield": "assets/shields/gamba.png",
+      "shield": "assets/shields/sanfrecce.png",
       "position": "DMF",
       "number": 6,
-      "photo": "assets/players-ingame/inamoto.png",
+      "photo": "assets/players-ingame/fujimoto.png",
       "info": { "nat": "JPN", "height": "181 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
       "stats": {
         "OFF": 14, "DEFENSE": 16, "BODY_B": 17, "STAM": 19,
@@ -75,14 +75,14 @@
       }
     },
     {
-      "id": "ono",
-      "name": "Shinji Ono",
-      "team": "Urawa Red Diamonds",
+      "id": "kubo",
+      "name": "Kubo",
+      "team": "Sanfrecce Hiroshima",
       "teamColor": "#cc0000",
-      "shield": "assets/shields/urawa.png",
+      "shield": "assets/shields/sanfrecce.png",
       "position": "OMF",
       "number": 10,
-      "photo": "assets/players-ingame/ono.png",
+      "photo": "assets/players-ingame/kubo.png",
       "info": { "nat": "JPN", "height": "175 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
       "stats": {
         "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
@@ -92,14 +92,14 @@
       }
     },
     {
-      "id": "takahara",
-      "name": "Naohiro Takahara",
-      "team": "Júbilo Iwata",
+      "id": "nakazawa",
+      "name": "Nakazawa",
+      "team": "Verdy Kawasaki",
       "teamColor": "#0066cc",
-      "shield": "assets/shields/jubilo.png",
+      "shield": "assets/shields/verdy.png",
       "position": "FW",
       "number": 9,
-      "photo": "assets/players-ingame/takahara.png",
+      "photo": "assets/players-ingame/nakazawa.png",
       "info": { "nat": "JPN", "height": "181 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
       "stats": {
         "OFF": 17, "DEFENSE": 11, "BODY_B": 18, "STAM": 17,
@@ -109,14 +109,14 @@
       }
     },
     {
-      "id": "kawaguchi",
-      "name": "Yoshikatsu Kawaguchi",
-      "team": "Yokohama F. Marinos",
+      "id": "seok-ju",
+      "name": "Seok-Ju",
+      "team": "Vissel Kobe",
       "teamColor": "#003399",
-      "shield": "assets/shields/yokohama.png",
-      "position": "GK",
-      "number": 1,
-      "photo": "assets/players-ingame/kawaguchi.png",
+      "shield": "assets/shields/vissel.png",
+      "position": "OH",
+      "number": 17,
+      "photo": "assets/players-ingame/seok-ju.png",
       "info": { "nat": "JPN", "height": "179 cm", "age": 25, "outside": "NO", "foot": "RIGHT" },
       "stats": {
         "OFF": 5, "DEFENSE": 18, "BODY_B": 16, "STAM": 17,
@@ -194,14 +194,14 @@
       }
     },
     {
-      "id": "hong",
-      "name": "Hong Myung-bo",
-      "team": "Kashiwa Reysol",
+      "id": "morishima",
+      "name": "Morishima",
+      "team": "Cerezo Osaka",
       "teamColor": "#ffcc00",
-      "shield": "assets/shields/kashiwa.png",
-      "position": "CB",
+      "shield": "assets/shields/cerezo.png",
+      "position": "OH",
       "number": 20,
-      "photo": "assets/players-ingame/hong.png",
+      "photo": "assets/players-ingame/morishima.png",
       "info": { "nat": "KOR", "height": "182 cm", "age": 31, "outside": "NO", "foot": "RIGHT" },
       "stats": {
         "OFF": 11, "DEFENSE": 19, "BODY_B": 17, "STAM": 17,
