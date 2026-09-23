@@ -1,0 +1,350 @@
+{
+  "players": [
+    {
+      "id": "nakamura",
+      "name": "Shunsuke Nakamura",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "shield": "assets/shields/yokohama.png",
+      "position": "MF",
+      "number": 10,
+      "photo": "assets/players-ingame/nakamura.png",
+      "info": {
+        "nat": "OTH.",
+        "height": "178 cm",
+        "age": 22,
+        "outside": "YES",
+        "foot": "LEFT"
+      },
+      "stats": {
+        "OFF": 17, "DEFENSE": 12, "BODY_B": 14, "STAM": 15,
+        "SPEED": 16, "ACCEL": 17, "PAS": 19, "S_POW": 18,
+        "S_ACCUR": 19, "JUMP": 12, "HEAD_A": 11, "TECH": 19,
+        "DRIBBL": 18, "CURV": 19, "AGGR": 13, "RESP": 17
+      }
+    },
+    {
+      "id": "nakayama",
+      "name": "Masashi Nakayama",
+      "team": "Júbilo Iwata",
+      "teamColor": "#0066cc",
+      "shield": "assets/shields/jubilo.png",
+      "position": "FW",
+      "number": 9,
+      "photo": "assets/players-ingame/nakayama.png",
+      "info": { "nat": "JPN", "height": "178 cm", "age": 33, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 19, "DEFENSE": 10, "BODY_B": 17, "STAM": 18,
+        "SPEED": 15, "ACCEL": 16, "PAS": 14, "S_POW": 18,
+        "S_ACCUR": 19, "JUMP": 17, "HEAD_A": 18, "TECH": 16,
+        "DRIBBL": 15, "CURV": 12, "AGGR": 15, "RESP": 18
+      }
+    },
+    {
+      "id": "miura",
+      "name": "Atsuhiro Miura",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "shield": "assets/shields/yokohama.png",
+      "position": "SH",
+      "number": 9,
+      "photo": "assets/players-ingame/miura.png",
+      "info": { "nat": "JPN", "height": "177 cm", "age": 33, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 17, "DEFENSE": 11, "BODY_B": 15, "STAM": 16,
+        "SPEED": 17, "ACCEL": 18, "PAS": 15, "S_POW": 16,
+        "S_ACCUR": 17, "JUMP": 14, "HEAD_A": 14, "TECH": 18,
+        "DRIBBL": 19, "CURV": 16, "AGGR": 14, "RESP": 16
+      }
+    },
+    {
+      "id": "inamoto",
+      "name": "Junichi Inamoto",
+      "team": "Gamba Osaka",
+      "teamColor": "#0033cc",
+      "shield": "assets/shields/gamba.png",
+      "position": "DMF",
+      "number": 6,
+      "photo": "assets/players-ingame/inamoto.png",
+      "info": { "nat": "JPN", "height": "181 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 14, "DEFENSE": 16, "BODY_B": 17, "STAM": 19,
+        "SPEED": 15, "ACCEL": 16, "PAS": 15, "S_POW": 15,
+        "S_ACCUR": 13, "JUMP": 15, "HEAD_A": 13, "TECH": 15,
+        "DRIBBL": 14, "CURV": 13, "AGGR": 17, "RESP": 17
+      }
+    },
+    {
+      "id": "ono",
+      "name": "Shinji Ono",
+      "team": "Urawa Red Diamonds",
+      "teamColor": "#cc0000",
+      "shield": "assets/shields/urawa.png",
+      "position": "OMF",
+      "number": 10,
+      "photo": "assets/players-ingame/ono.png",
+      "info": { "nat": "JPN", "height": "175 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
+        "SPEED": 15, "ACCEL": 17, "PAS": 18, "S_POW": 16,
+        "S_ACCUR": 16, "JUMP": 13, "HEAD_A": 12, "TECH": 19,
+        "DRIBBL": 18, "CURV": 17, "AGGR": 12, "RESP": 17
+      }
+    },
+    {
+      "id": "takahara",
+      "name": "Naohiro Takahara",
+      "team": "Júbilo Iwata",
+      "teamColor": "#0066cc",
+      "shield": "assets/shields/jubilo.png",
+      "position": "FW",
+      "number": 9,
+      "photo": "assets/players-ingame/takahara.png",
+      "info": { "nat": "JPN", "height": "181 cm", "age": 21, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 17, "DEFENSE": 11, "BODY_B": 18, "STAM": 17,
+        "SPEED": 16, "ACCEL": 16, "PAS": 14, "S_POW": 17,
+        "S_ACCUR": 17, "JUMP": 18, "HEAD_A": 18, "TECH": 15,
+        "DRIBBL": 15, "CURV": 13, "AGGR": 16, "RESP": 17
+      }
+    },
+    {
+      "id": "kawaguchi",
+      "name": "Yoshikatsu Kawaguchi",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "shield": "assets/shields/yokohama.png",
+      "position": "GK",
+      "number": 1,
+      "photo": "assets/players-ingame/kawaguchi.png",
+      "info": { "nat": "JPN", "height": "179 cm", "age": 25, "outside": "NO", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 5, "DEFENSE": 18, "BODY_B": 16, "STAM": 17,
+        "SPEED": 14, "ACCEL": 15, "PAS": 14, "S_POW": 14,
+        "S_ACCUR": 10, "JUMP": 17, "HEAD_A": 10, "TECH": 15,
+        "DRIBBL": 10, "CURV": 12, "AGGR": 15, "RESP": 19
+      }
+    },
+    {
+      "id": "morioka",
+      "name": "Ryuzo Morioka",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "shield": "assets/shields/shimizu.png",
+      "position": "CB",
+      "number": 4,
+      "photo": "assets/players-ingame/morioka.png",
+      "info": { "nat": "JPN", "height": "180 cm", "age": 25, "outside": "NO", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 10, "DEFENSE": 18, "BODY_B": 17, "STAM": 17,
+        "SPEED": 14, "ACCEL": 15, "PAS": 15, "S_POW": 14,
+        "S_ACCUR": 11, "JUMP": 17, "HEAD_A": 17, "TECH": 14,
+        "DRIBBL": 12, "CURV": 11, "AGGR": 16, "RESP": 17
+      }
+    },
+    {
+      "id": "alex",
+      "name": "Alessandro Santos",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "shield": "assets/shields/shimizu.png",
+      "position": "OMF",
+      "number": 10,
+      "photo": "assets/players-ingame/alex.png",
+      "info": { "nat": "BRA", "height": "178 cm", "age": 23, "outside": "YES", "foot": "LEFT" },
+      "stats": {
+        "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
+        "SPEED": 16, "ACCEL": 17, "PAS": 17, "S_POW": 17,
+        "S_ACCUR": 16, "JUMP": 13, "HEAD_A": 12, "TECH": 18,
+        "DRIBBL": 19, "CURV": 18, "AGGR": 13, "RESP": 16
+      }
+    },
+    {
+      "id": "sawanobori",
+      "name": "Masaaki Sawanobori",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "shield": "assets/shields/shimizu.png",
+      "position": "OH",
+      "number": 10,
+      "photo": "assets/players-ingame/sawanobori.png",
+      "info": { "nat": "JPN", "height": "178 cm", "age": 23, "outside": "YES", "foot": "LEFT" },
+      "stats": {
+        "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
+        "SPEED": 16, "ACCEL": 17, "PAS": 17, "S_POW": 17,
+        "S_ACCUR": 16, "JUMP": 13, "HEAD_A": 12, "TECH": 18,
+        "DRIBBL": 19, "CURV": 18, "AGGR": 13, "RESP": 16
+      }
+    },
+    {
+      "id": "Fabinho",
+      "name": "Fabio Augusto Justino",
+      "team": "Shimizu S-Pulse",
+      "teamColor": "#ff6600",
+      "shield": "assets/shields/shimizu.png",
+      "position": "CF",
+      "number": 12,
+      "photo": "assets/players-ingame/fabinho.png",
+      "info": { "nat": "BRA", "height": "178 cm", "age": 23, "outside": "YES", "foot": "LEFT" },
+      "stats": {
+        "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
+        "SPEED": 16, "ACCEL": 17, "PAS": 17, "S_POW": 17,
+        "S_ACCUR": 16, "JUMP": 13, "HEAD_A": 12, "TECH": 18,
+        "DRIBBL": 19, "CURV": 18, "AGGR": 13, "RESP": 16
+      }
+    },
+    {
+      "id": "hong",
+      "name": "Hong Myung-bo",
+      "team": "Kashiwa Reysol",
+      "teamColor": "#ffcc00",
+      "shield": "assets/shields/kashiwa.png",
+      "position": "CB",
+      "number": 20,
+      "photo": "assets/players-ingame/hong.png",
+      "info": { "nat": "KOR", "height": "182 cm", "age": 31, "outside": "NO", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 11, "DEFENSE": 19, "BODY_B": 17, "STAM": 17,
+        "SPEED": 14, "ACCEL": 15, "PAS": 17, "S_POW": 14,
+        "S_ACCUR": 12, "JUMP": 17, "HEAD_A": 18, "TECH": 16,
+        "DRIBBL": 13, "CURV": 12, "AGGR": 15, "RESP": 18
+      }
+    },
+    {
+      "id": "yoo",
+      "name": "Yoo Sang-chul",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "shield": "assets/shields/yokohama.png",
+      "position": "OMF",
+      "number": 8,
+      "photo": "assets/players-ingame/yoo.png",
+      "info": { "nat": "KOR", "height": "181 cm", "age": 29, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 17, "DEFENSE": 14, "BODY_B": 17, "STAM": 18,
+        "SPEED": 15, "ACCEL": 16, "PAS": 16, "S_POW": 17,
+        "S_ACCUR": 16, "JUMP": 17, "HEAD_A": 17, "TECH": 16,
+        "DRIBBL": 15, "CURV": 14, "AGGR": 16, "RESP": 16
+      }
+    },
+    {
+      "id": "stojkovic",
+      "name": "Dragan Stojkovic",
+      "team": "Nagoya Grampus",
+      "teamColor": "#ff3300",
+      "shield": "assets/shields/nagoya.png",
+      "position": "OMF",
+      "number": 10,
+      "photo": "assets/players-ingame/stojkovic.png",
+      "info": { "nat": "YUG", "height": "175 cm", "age": 35, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 18, "DEFENSE": 13, "BODY_B": 14, "STAM": 15,
+        "SPEED": 13, "ACCEL": 14, "PAS": 19, "S_POW": 18,
+        "S_ACCUR": 18, "JUMP": 12, "HEAD_A": 12, "TECH": 20,
+        "DRIBBL": 17, "CURV": 18, "AGGR": 13, "RESP": 16
+      }
+    },
+    {
+      "id": "tuto",
+      "name": "Tuto",
+      "team": "FC Tokyo",
+      "teamColor": "#003399",
+      "shield": "assets/shields/fctokyo.png",
+      "position": "FW",
+      "number": 9,
+      "photo": "assets/players-ingame/tuto.png",
+      "info": { "nat": "BRA", "height": "182 cm", "age": 22, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 17, "DEFENSE": 10, "BODY_B": 17, "STAM": 16,
+        "SPEED": 15, "ACCEL": 16, "PAS": 13, "S_POW": 17,
+        "S_ACCUR": 17, "JUMP": 17, "HEAD_A": 17, "TECH": 15,
+        "DRIBBL": 14, "CURV": 12, "AGGR": 15, "RESP": 16
+      }
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "team": "Consadole Sapporo",
+      "teamColor": "#cc0000",
+      "shield": "assets/shields/sapporo.png",
+      "position": "FW",
+      "number": 9,
+      "photo": "assets/players-ingame/emerson.png",
+      "info": { "nat": "BRA", "height": "182 cm", "age": 22, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 18, "DEFENSE": 10, "BODY_B": 17, "STAM": 18,
+        "SPEED": 17, "ACCEL": 18, "PAS": 14, "S_POW": 17,
+        "S_ACCUR": 17, "JUMP": 16, "HEAD_A": 16, "TECH": 16,
+        "DRIBBL": 16, "CURV": 13, "AGGR": 16, "RESP": 17
+      }
+    },
+    {
+      "id": "bebeto",
+      "name": "Bebeto",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "shield": "assets/shields/kashima.png",
+      "position": "FW",
+      "number": 8,
+      "photo": "assets/players-ingame/bebeto.png",
+      "info": { "nat": "BRA", "height": "176 cm", "age": 36, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 17, "DEFENSE": 10, "BODY_B": 14, "STAM": 14,
+        "SPEED": 14, "ACCEL": 15, "PAS": 15, "S_POW": 16,
+        "S_ACCUR": 17, "JUMP": 13, "HEAD_A": 13, "TECH": 18,
+        "DRIBBL": 17, "CURV": 16, "AGGR": 12, "RESP": 15
+      }
+    },
+    {
+      "id": "bismarck",
+      "name": "Bismarck",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "shield": "assets/shields/kashima.png",
+      "position": "OMF",
+      "number": 10,
+      "photo": "assets/players-ingame/bismarck.png",
+      "info": { "nat": "BRA", "height": "177 cm", "age": 31, "outside": "YES", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 16, "DEFENSE": 13, "BODY_B": 15, "STAM": 16,
+        "SPEED": 14, "ACCEL": 15, "PAS": 17, "S_POW": 17,
+        "S_ACCUR": 16, "JUMP": 14, "HEAD_A": 13, "TECH": 17,
+        "DRIBBL": 16, "CURV": 17, "AGGR": 13, "RESP": 16
+      }
+    },
+    {
+      "id": "akita",
+      "name": "Yutaka Akita",
+      "team": "Kashima Antlers",
+      "teamColor": "#c8102e",
+      "shield": "assets/shields/kashima.png",
+      "position": "CB",
+      "number": 2,
+      "photo": "assets/players-ingame/akita.png",
+      "info": { "nat": "JPN", "height": "180 cm", "age": 30, "outside": "NO", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 10, "DEFENSE": 19, "BODY_B": 17, "STAM": 18,
+        "SPEED": 14, "ACCEL": 15, "PAS": 14, "S_POW": 14,
+        "S_ACCUR": 11, "JUMP": 17, "HEAD_A": 18, "TECH": 14,
+        "DRIBBL": 12, "CURV": 11, "AGGR": 17, "RESP": 17
+      }
+    },
+    {
+      "id": "matsuda",
+      "name": "Naoki Matsuda",
+      "team": "Yokohama F. Marinos",
+      "teamColor": "#003399",
+      "shield": "assets/shields/yokohama.png",
+      "position": "CB",
+      "number": 3,
+      "photo": "assets/players-ingame/matsuda.png",
+      "info": { "nat": "JPN", "height": "183 cm", "age": 23, "outside": "NO", "foot": "RIGHT" },
+      "stats": {
+        "OFF": 11, "DEFENSE": 18, "BODY_B": 17, "STAM": 17,
+        "SPEED": 15, "ACCEL": 16, "PAS": 15, "S_POW": 14,
+        "S_ACCUR": 11, "JUMP": 17, "HEAD_A": 17, "TECH": 15,
+        "DRIBBL": 13, "CURV": 12, "AGGR": 16, "RESP": 17
+      }
+    }
+  ]
+}

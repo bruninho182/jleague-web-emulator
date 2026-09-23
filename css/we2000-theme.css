@@ -1817,3 +1817,543 @@ body > .modal-content {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-2px); }
 }
+
+/* ============================================
+   19. NAVEGAÇÃO POR ABAS (SPA)
+   ============================================ */
+
+/* Esconde todas as seções por padrão */
+.section-page {
+    display: none;
+    animation: sectionFadeIn 0.4s ease;
+}
+
+/* Mostra só a seção ativa */
+.section-page.active {
+    display: block;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Link ativo no menu */
+.nav-link.active {
+    background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%) !important;
+    color: #000 !important;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+    box-shadow:
+        0 3px 0 #b45309,
+        0 4px 8px rgba(0, 0, 0, 0.4),
+        0 0 16px rgba(251, 191, 36, 0.7),
+        inset 0 2px 0 rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-1px);
+    position: relative;
+}
+
+/* Indicador visual no link ativo */
+.nav-link.active::before {
+    content: '▶';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6rem;
+    color: #7c2d12;
+    animation: activeArrow 1.2s ease-in-out infinite;
+}
+
+@keyframes activeArrow {
+    0%, 100% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    50% { opacity: 0.6; transform: translateY(-50%) translateX(2px); }
+}
+
+/* Em telas pequenas, ajusta o indicador */
+@media (max-width: 600px) {
+    .nav-link.active::before {
+        display: none;
+    }
+}
+
+/* Remove o margin-bottom extra do main (já não precisa com abas) */
+main {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Ajuste no back-to-top (só faz sentido com scroll interno) */
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Suaviza a transição entre seções */
+.section-page.active > * {
+    animation: sectionChildFade 0.5s ease;
+}
+
+@keyframes sectionChildFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================================
+   20. FICHAS TÉCNICAS IN-GAME
+   ============================================ */
+
+.ingame-container {
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 6px;
+    padding: 1.2rem;
+    box-shadow:
+        inset 0 2px 8px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.ingame-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+/* Card in-game */
+.ingame-card {
+    background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+    border: 2px solid var(--player-color, #f59e0b);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, 0.1),
+        0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.ingame-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #fbbf24;
+    box-shadow:
+        0 0 0 2px #fbbf24,
+        0 0 24px var(--player-color, rgba(251, 191, 36, 0.5)),
+        0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.ingame-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-bottom: 2px solid var(--player-color, #f59e0b);
+}
+
+.ingame-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    text-shadow:
+        2px 2px 0 #000,
+        0 0 8px rgba(251, 191, 36, 0.6);
+}
+
+.ingame-position {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #fff;
+    background: var(--player-color, #f59e0b);
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ingame-photo-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(30, 64, 175, 0.4) 0%, transparent 70%),
+        linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    border-bottom: 2px solid var(--player-color, #f59e0b);
+}
+
+.ingame-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.ingame-card:hover .ingame-photo {
+    transform: scale(1.06);
+}
+
+.ingame-photo-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #fbbf24;
+    display: flex;
+}
+
+/* Escudo pequeno no canto */
+.ingame-shield-wrap {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 36px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid #fbbf24;
+    border-radius: 4px;
+    padding: 2px;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.7),
+        0 0 8px rgba(251, 191, 36, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ingame-shield {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+.ingame-info {
+    padding: 0.5rem 0.7rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.ingame-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: #fff;
+    line-height: 1.4;
+    text-shadow:
+        1px 1px 0 #000,
+        0 0 6px var(--player-color, rgba(251, 191, 36, 0.5));
+    letter-spacing: 0.5px;
+}
+
+.ingame-team {
+    font-family: 'VT323', monospace;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.ingame-quick-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-shadow: 1px 1px 0 #000;
+    margin-top: 0.2rem;
+}
+
+.ingame-card-footer {
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ingame-details-btn {
+    width: 100%;
+    padding: 0.4rem;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+    color: #000;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow:
+        0 2px 0 #92400e,
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.ingame-details-btn:hover {
+    background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   MODAL DE FICHA IN-GAME (estilo WE2000)
+   ============================================ */
+.ingame-modal-content {
+    max-width: 720px;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #1e3a8a 0%, #0f172a 100%);
+}
+
+.if-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(180deg, var(--player-color, #ea580c) 0%, rgba(0, 0, 0, 0.6) 100%);
+    border-bottom: 3px solid #fbbf24;
+}
+
+.if-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.if-name {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    color: #fff;
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.7),
+        -1px -1px 0 rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.if-team {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.if-shield {
+    width: 56px;
+    height: 66px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+}
+
+.if-shield img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.if-body {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+}
+
+.if-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.if-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(30, 64, 175, 0.4) 0%, transparent 70%),
+        linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #334155;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.if-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.if-photo-fallback {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #fbbf24;
+}
+
+/* Info lateral (NAT, HEIG, AGE...) */
+.if-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.5rem;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #334155;
+    border-radius: 4px;
+}
+
+.if-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.if-info-row:last-child {
+    border-bottom: none;
+}
+
+.if-info-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fef3c7;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 0.5px;
+}
+
+.if-info-value {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #fbbf24;
+    text-shadow:
+        1px 1px 0 #000,
+        0 0 6px rgba(251, 191, 36, 0.5);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Stats (as 16 barras) */
+.if-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.5rem;
+    background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    border: 2px solid #334155;
+    border-radius: 4px;
+}
+
+.if-stat-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1.2fr;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.15rem 0;
+    border-bottom: 1px dotted rgba(51, 65, 85, 0.5);
+}
+
+.if-stat-row:last-child {
+    border-bottom: none;
+}
+
+.if-stat-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.if-stat-value {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #fbbf24;
+    text-shadow:
+        1px 1px 0 #000,
+        0 0 6px rgba(251, 191, 36, 0.6);
+    text-align: right;
+    min-width: 28px;
+}
+
+.if-stat-bar {
+    height: 10px;
+    background: #020617;
+    border: 1px solid #334155;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.if-stat-bar-fill {
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+/* Cores das barras conforme valor */
+.stat-elite { background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%); box-shadow: 0 0 8px rgba(251, 191, 36, 0.7); }
+.stat-great { background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%); box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
+.stat-good  { background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%); }
+.stat-avg   { background: linear-gradient(90deg, #fb923c 0%, #ea580c 100%); }
+.stat-low   { background: linear-gradient(90deg, #dc2626 0%, #991b1b 100%); }
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 900px) {
+    .ingame-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .if-body {
+        grid-template-columns: 1fr;
+    }
+
+    .if-left {
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    .ingame-modal-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .ingame-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+
+    .if-name {
+        font-size: 0.6rem;
+    }
+
+    .if-stat-label {
+        font-size: 0.4rem;
+    }
+}

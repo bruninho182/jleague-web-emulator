@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/png" href="assets/images/logo.png">
 
-        <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e40af">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,18 +44,19 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header">
         <div class="header-inner">
-            <a href="#top" class="logo" data-sound="click" aria-label="J.League Winning Eleven 2000">
+            <a href="#emulador" class="logo" data-sound="click" aria-label="J.League Winning Eleven 2000">
                 <img src="assets/images/logo.png" 
                      alt="J.League Winning Eleven 2000" 
                      class="logo-img">
             </a>
             <nav class="main-nav">
-                <a href="#emulador" class="nav-link" data-sound="hover">Jogar</a>
+                <a href="#emulador" class="nav-link active" data-sound="hover">Jogar</a>
                 <a href="#times" class="nav-link" data-sound="hover">Times</a>
                 <a href="#jogadores" class="nav-link" data-sound="hover">Jogadores</a>
+                <a href="#fichas" class="nav-link" data-sound="hover">Fichas</a>
                 <a href="#sobre" class="nav-link" data-sound="hover">Sobre</a>
                 <a href="#chat" class="nav-link" data-sound="hover">Chat</a>
-                                <button id="pwa-install-btn" class="nav-link nav-link-install" data-sound="click" type="button" style="display: none;">
+                <button id="pwa-install-btn" class="nav-link nav-link-install" data-sound="click" type="button" style="display: none;">
                     <i class="fas fa-download"></i> Instalar
                 </button>
                 <button id="open-dev-modal" class="nav-link nav-link-dev" data-sound="click" type="button">
@@ -70,9 +71,11 @@
         </div>
     </header>
 
-    <!-- ================= EMULADOR ================= -->
+    <!-- ================= MAIN - SEÇÕES (ABAS) ================= -->
     <main>
-        <section id="emulador" class="emulator-section fade-in">
+
+        <!-- ================= EMULADOR ================= -->
+        <section id="emulador" class="emulator-section section-page active" data-section="emulador">
             <h2 class="section-title">▸ EMULADOR</h2>
 
             <div class="emulator-wrapper">
@@ -92,9 +95,6 @@
 
                     <div class="panel-group">
                         <button id="btn-fullscreen" class="ctrl-btn" data-sound="click">⛶ Tela Cheia</button>
-                        <button id="btn-save" class="ctrl-btn" data-sound="click">💾 Salvar</button>
-                        <button id="btn-load" class="ctrl-btn" data-sound="click">📂 Carregar Save</button>
-                        <button id="btn-reset" class="ctrl-btn" data-sound="click">🔄 Reiniciar</button>
                     </div>
 
                     <div class="panel-group bios-warning">
@@ -107,22 +107,19 @@
         </section>
 
         <!-- ================= CONHEÇA OS TIMES ================= -->
-        <section id="times" class="teams-section fade-in">
+        <section id="times" class="teams-section section-page" data-section="times">
             <h2 class="section-title">▸ CONHEÇA OS TIMES</h2>
             <p class="section-subtitle">
                 Explore as 27 equipes da J.League 2000 · Veja estatísticas, estádios, títulos e curiosidades
             </p>
 
             <div class="team-selector">
-                <!-- Abas J1 / J2 -->
                 <div class="division-tabs">
                     <button class="division-tab active" data-division="j1">J1 LEAGUE</button>
                     <button class="division-tab" data-division="j2">J2 LEAGUE</button>
                 </div>
 
-                <!-- Painel duplo: MAPA + INFO DO TIME -->
                 <div class="team-panel-dual">
-                    <!-- Mapa do Japão -->
                     <div class="japan-map-wrap">
                         <div class="map-header">
                             <span class="map-title">🗾 MAPA DO JAPÃO</span>
@@ -131,37 +128,68 @@
                         <div id="japan-map" class="japan-map"></div>
                     </div>
 
-                    <!-- Painel do time selecionado -->
                     <div class="team-panel-top">
-                        <div class="ts-shield-container" id="ts-shield">
-                            <!-- Escudo via JS -->
-                        </div>
+                        <div class="ts-shield-container" id="ts-shield"></div>
                         <div class="ts-info">
                             <div class="ts-name" id="ts-name">—</div>
                             <div class="ts-city" id="ts-city">—</div>
                         </div>
-                        <div class="ts-stats" id="ts-stats">
-                            <!-- Barras via JS -->
-                        </div>
-                        <!-- Ficha completa do time -->
-                        <div class="ts-info-card" id="ts-info-card">
-                            <!-- Preenchido via JS -->
-                        </div>
+                        <div class="ts-stats" id="ts-stats"></div>
+                        <div class="ts-info-card" id="ts-info-card"></div>
                     </div>
                 </div>
 
-                <!-- Grade de escudos -->
                 <div class="team-shield-grid-wrap">
                     <span class="division-label" id="division-label">J1 LEAGUE</span>
-                    <div class="team-shield-grid" id="team-shield-grid">
-                        <!-- Escudos via JS -->
-                    </div>
+                    <div class="team-shield-grid" id="team-shield-grid"></div>
                 </div>
             </div>
         </section>
 
+        <!-- ================= ENCICLOPÉDIA DE JOGADORES ================= -->
+        <section id="jogadores" class="players-section section-page" data-section="jogadores">
+            <h2 class="section-title">▸ ENCICLOPÉDIA DE JOGADORES</h2>
+            <p class="section-subtitle">
+                Conheça os 20 craques que marcaram a J.League em 2000 · Biografias, conquistas e curiosidades
+            </p>
+
+            <div class="players-container">
+                <div class="players-search-wrap">
+                    <i class="fas fa-search players-search-icon"></i>
+                    <input type="text" 
+                           id="player-search" 
+                           class="players-search-input"
+                           placeholder="Buscar por nome, time, posição ou país..."
+                           autocomplete="off">
+                </div>
+
+                <div id="players-grid" class="players-grid"></div>
+            </div>
+        </section>
+
+        <!-- ================= FICHAS TÉCNICAS IN-GAME ================= -->
+        <section id="fichas" class="ingame-section section-page" data-section="fichas">
+            <h2 class="section-title">▸ FICHAS TÉCNICAS IN-GAME</h2>
+            <p class="section-subtitle">
+                Os atributos reais dos jogadores como aparecem no WE2000 · 16 skills oficiais do jogo
+            </p>
+
+            <div class="ingame-container">
+                <div class="players-search-wrap">
+                    <i class="fas fa-search players-search-icon"></i>
+                    <input type="text"
+                           id="ingame-search"
+                           class="players-search-input"
+                           placeholder="Buscar jogador, time ou posição..."
+                           autocomplete="off">
+                </div>
+
+                <div id="ingame-grid" class="ingame-grid"></div>
+            </div>
+        </section>
+
         <!-- ================= SOBRE ================= -->
-        <section id="sobre" class="about-section fade-in">
+        <section id="sobre" class="about-section section-page" data-section="sobre">
             <h2 class="section-title">▸ SOBRE O JOGO</h2>
             <div class="about-content">
                 <p><strong>J.League Jikkyou Winning Eleven 2000</strong> foi lançado pela Konami em 2000 para PlayStation 1. Baseado na temporada de 1998 da J.League, traz as principais equipes do futebol japonês com o motor de física e a jogabilidade que consagrou a série Winning Eleven.</p>
@@ -174,33 +202,8 @@
             </div>
         </section>
 
-                <!-- ================= ENCICLOPÉDIA DE JOGADORES ================= -->
-        <section id="jogadores" class="players-section fade-in">
-            <h2 class="section-title">▸ ENCICLOPÉDIA DE JOGADORES</h2>
-            <p class="section-subtitle">
-                Conheça os 20 craques que marcaram a J.League em 2000 · Biografias, conquistas e curiosidades
-            </p>
-
-            <div class="players-container">
-                <!-- Barra de busca -->
-                <div class="players-search-wrap">
-                    <i class="fas fa-search players-search-icon"></i>
-                    <input type="text" 
-                           id="player-search" 
-                           class="players-search-input"
-                           placeholder="Buscar por nome, time, posição ou país..."
-                           autocomplete="off">
-                </div>
-
-                <!-- Grade de jogadores -->
-                <div id="players-grid" class="players-grid">
-                    <!-- Cards via JS -->
-                </div>
-            </div>
-        </section>
-
         <!-- ================= CHAT ================= -->
-        <section id="chat" class="chat-section fade-in">
+        <section id="chat" class="chat-section section-page" data-section="chat">
             <h2 class="section-title">▸ CHAT DA COMUNIDADE</h2>
             <div class="chat-wrapper">
                 <div class="chat-messages" id="chat-messages">
@@ -212,6 +215,7 @@
                 </form>
             </div>
         </section>
+
     </main>
 
     <!-- ================= MODAL DE TIME ================= -->
@@ -229,15 +233,13 @@
         </div>
     </div>
 
-        <!-- ================= MODAL DO JOGADOR ================= -->
+    <!-- ================= MODAL DO JOGADOR ================= -->
     <div id="player-modal" class="modal">
         <div class="modal-content player-modal-content">
             <button class="modal-close" id="pm-close" data-sound="click" type="button">✕</button>
             
             <div class="pm-header">
-                <div class="pm-avatar-wrap" id="pm-shield">
-                    <!-- Foto via JS -->
-                </div>
+                <div class="pm-avatar-wrap" id="pm-shield"></div>
                 <div class="pm-title">
                     <span class="pm-name" id="pm-name">—</span>
                     <span class="pm-nickname" id="pm-nickname">—</span>
@@ -245,12 +247,32 @@
                 </div>
             </div>
 
-            <div class="pm-body" id="pm-body">
-                <!-- Conteúdo via JS -->
-            </div>
+            <div class="pm-body" id="pm-body"></div>
         </div>
     </div>
 
+    <!-- ================= MODAL DE FICHA IN-GAME ================= -->
+    <div id="ingame-modal" class="modal">
+        <div class="modal-content ingame-modal-content">
+            <button class="modal-close" id="if-close" data-sound="click" type="button">✕</button>
+
+            <div class="if-header">
+                <div class="if-header-left">
+                    <span class="if-name" id="if-name">—</span>
+                    <span class="if-team" id="if-team">—</span>
+                </div>
+                <div class="if-shield" id="if-shield"></div>
+            </div>
+
+            <div class="if-body">
+                <div class="if-left">
+                    <div class="if-photo" id="if-photo"></div>
+                    <div class="if-info" id="if-info"></div>
+                </div>
+                <div class="if-stats" id="if-stats"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- ================= MODAL DO DEV ================= -->
     <div id="dev-modal" class="modal">
@@ -345,17 +367,17 @@
     <script src="js/teams.js"></script>
     <script src="js/team-selector.js"></script>
     <script src="js/players-encyclopedia.js"></script>
-        <script src="js/main.js"></script>
+    <script src="js/ingame-fiches.js"></script>
+    <script src="js/main.js"></script>
 
     <!-- ================= PWA - Service Worker ================= -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('/service-worker.js?v=2')
                     .then((registration) => {
                         console.log('[PWA] Service Worker registrado:', registration.scope);
 
-                        // Verifica atualizações
                         registration.addEventListener('updatefound', () => {
                             const newWorker = registration.installing;
                             newWorker.addEventListener('statechange', () => {
@@ -371,6 +393,5 @@
             });
         }
     </script>
-</body>
 </body>
 </html>

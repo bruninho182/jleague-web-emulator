@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initEmulatorControls();
     initChat();
     initNavigation();
-    initScrollAnimations();
     initBackToTop();
     initDevModal();
     PlayersEncyclopedia.init();
+    IngameFiches.init(); 
 });
 
 /* ============ STATUS BAR (relógio + visitantes) ============ */
@@ -131,17 +131,104 @@ function initChat() {
     });
 }
 
-/* ============ NAVEGAÇÃO SUAVE ============ */
+/* ============ NAVEGAÇÃO POR ABAS (SPA) ============ */
 function initNavigation() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
+    const allSections = document.querySelectorAll('.section-page');
+
+    /**
+     * Ativa uma seção pelo ID (hash).
+     * @param {string} hash - Ex: "emulador", "times", "jogadores"
+     * @param {boolean} updateHistory - Se deve atualizar a URL
+     */
+    function activateSection(hash, updateHistory = true) {
+        // Remove o "#" se tiver
+        const sectionId = hash.replace('#', '');
+        const targetSection = document.querySelector(`.section-page[data-section="${sectionId}"]`);
+
+        // Se não achou a seção, ativa a primeira (emulador) por padrão
+        if (!targetSection) {
+            if (sectionId === '' || sectionId === 'top') {
+                activateSection('emulador', false);
+                return;
+            }
+            console.warn(`[Navigation] Seção "${sectionId}" não encontrada.`);
+            return;
+        }
+
+        // Remove 'active' de todas as seções
+        allSections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Adiciona 'active' à seção alvo
+        targetSection.classList.add('active');
+
+        // Atualiza os links do menu
+        navLinks.forEach(link => {
+            const linkHash = link.getAttribute('href').replace('#', '');
+            link.classList.toggle('active', linkHash === sectionId);
+        });
+
+        // Força as animações .fade-in a ficarem visíveis
+        targetSection.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
+        });
+
+        // Scroll para o topo da página
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Atualiza a URL (deep linking)
+        if (updateHistory) {
+            history.pushState(null, '', `#${sectionId}`);
+        }
+
+        // Toca som
+        RetroAudio.play('click');
+    }
+
+    // Expõe para uso global
+    window.activateSection = activateSection;
+
+    // Listener nos links do menu
+    navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
+            e.preventDefault();
+            const hash = link.getAttribute('href');
+            activateSection(hash);
+        });
+    });
+
+    // Listener nos outros links com "#" (footer, botões, etc)
+    document.querySelectorAll('a[href^="#"]:not(.main-nav a)').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const target = link.getAttribute('href');
+
+            // Se for link para uma seção-page, ativa ela
+            const sectionId = target.replace('#', '');
+            const sectionExists = document.querySelector(`.section-page[data-section="${sectionId}"]`);
+
+            if (sectionExists) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                activateSection(target);
+            }
+            // Senão, faz scroll normal (ex: link para "top")
+            else if (target === '#top') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     });
+
+    // Listener no histórico (botões voltar/avançar do navegador)
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash || '#emulador';
+        activateSection(hash, false);
+    });
+
+    // Ativa a seção baseada na URL ao carregar a página
+    const initialHash = window.location.hash || '#emulador';
+    activateSection(initialHash, false);
 }
 
 /* ============ ANIMAÇÕES NO SCROLL ============ */
