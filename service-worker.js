@@ -1,12 +1,12 @@
 /* ============================================
    SERVICE WORKER - J.League WE 2000
-   Cache offline para funcionamento como PWA
+   Versão resiliente: não falha se algum arquivo estiver ausente
    ============================================ */
 
-const CACHE_NAME = 'we2000-v1.0.0';
+const CACHE_NAME = 'we2000-v1.0.1';
 const RUNTIME_CACHE = 'we2000-runtime-v1';
 
-// Arquivos essenciais (serão cacheados na instalação)
+// Arquivos essenciais
 const PRECACHE_URLS = [
     '/',
     '/index.html',
@@ -25,29 +25,43 @@ const PRECACHE_URLS = [
     '/data/players.json',
     '/assets/images/logo.png',
     '/assets/images/japan-map.png',
-    '/assets/icons/icon-192.png',
-    '/assets/icons/icon-512.png',
     '/manifest.json',
 ];
 
 /* ============================================
-   INSTALAÇÃO - pré-cacheia os arquivos essenciais
+   INSTALAÇÃO - cacheia um por um (ignora erros)
    ============================================ */
 self.addEventListener('install', (event) => {
     console.log('[Service Worker] Instalando...');
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('[Service Worker] Pré-cacheando arquivos...');
-                return cache.addAll(PRECACHE_URLS);
-            })
-            .then(() => self.skipWaiting())
-            .catch((err) => console.warn('[Service Worker] Erro no pré-cache:', err))
+        caches.open(CACHE_NAME).then(async (cache) => {
+            console.log('[Service Worker] Pré-cacheando arquivos...');
+
+            // Cacheia individualmente, ignorando arquivos que não existem
+            const results = await Promise.allSettled(
+                PRECACHE_URLS.map(async (url) => {
+                    try {
+                        const response = await fetch(url, { cache: 'no-cache' });
+                        if (response.ok) {
+                            await cache.put(url, response);
+                            console.log(`[SW] ✓ Cacheado: ${url}`);
+                        } else {
+                            console.warn(`[SW] ✗ Ignorado (${response.status}): ${url}`);
+                        }
+                    } catch (err) {
+                        console.warn(`[SW] ✗ Falha ao cachear ${url}:`, err.message);
+                    }
+                })
+            );
+
+            const ok = results.filter(r => r.status === 'fulfilled').length;
+            console.log(`[Service Worker] ${ok}/${PRECACHE_URLS.length} arquivos cacheados.`);
+        }).then(() => self.skipWaiting())
     );
 });
 
 /* ============================================
-   ATIVAÇÃO - limpa caches antigos
+   ATIVAÇÃO
    ============================================ */
 self.addEventListener('activate', (event) => {
     console.log('[Service Worker] Ativando...');
@@ -67,30 +81,25 @@ self.addEventListener('activate', (event) => {
 
 /* ============================================
    FETCH - estratégia de cache
-   - Requisições próprias: Cache First (com fallback de rede)
-   - CDNs externas: Network First
    ============================================ */
 self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
 
-    // Ignora requisições não-GET
     if (request.method !== 'GET') return;
 
-    // Ignora chamadas ao EmulatorJS (precisa de dados frescos)
-    if (url.href.includes('emulatorjs.org') || url.href.includes('lemon-web.net')) {
+    // Não intercepta EmulatorJS nem APIs
+    if (url.href.includes('emulatorjs.org') ||
+        url.href.includes('lemon-web.net') ||
+        url.pathname.startsWith('/api/')) {
         return;
     }
 
-    // Ignora requisições para o backend/APIs
-    if (url.pathname.startsWith('/api/')) return;
-
-    // Arquivos locais: Cache First
+    // Arquivos locais: Cache First com atualização em background
     if (url.origin === self.location.origin) {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
                 if (cachedResponse) {
-                    // Retorna do cache E atualiza em background
                     fetch(request)
                         .then((response) => {
                             if (response && response.status === 200) {
@@ -99,14 +108,12 @@ self.addEventListener('fetch', (event) => {
                                 });
                             }
                         })
-                        .catch(() => { /* offline: ignora */ });
+                        .catch(() => { /* offline, ignora */ });
                     return cachedResponse;
                 }
 
-                // Não está no cache: busca na rede
                 return fetch(request)
                     .then((response) => {
-                        // Cacheia apenas respostas OK
                         if (!response || response.status !== 200 || response.type === 'opaque') {
                             return response;
                         }
@@ -117,7 +124,6 @@ self.addEventListener('fetch', (event) => {
                         return response;
                     })
                     .catch(() => {
-                        // Fallback offline
                         if (request.destination === 'document') {
                             return caches.match('/index.html');
                         }
@@ -127,7 +133,7 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Requisições externas (CDN, fontes, etc): Network First
+    // Externos: Network First
     event.respondWith(
         fetch(request)
             .then((response) => {
